@@ -1,4 +1,16 @@
-/home/marcinskic/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/marcinskic/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/ninja/linux/ninja -G Ninja -S /home/marcinskic/CLionProjects/AdvOOPinCpp/Lab1 -B /home/marcinskic/CLionProjects/AdvOOPinCpp/Lab1/cmake-build-debug
+/home/marcinskic/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/marcinskic/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/ninja/linux/ninja -G Ninja -S /home/marcinskic/repos/adv-oop-in-cpp/Lab1/Ex1Task1 -B /home/marcinskic/repos/adv-oop-in-cpp/Lab1/Ex1Task1/cmake-build-debug
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/marcinskic/CLionProjects/AdvOOPinCpp/Lab1/cmake-build-debug
+-- Build files have been written to: /home/marcinskic/repos/adv-oop-in-cpp/Lab1/Ex1Task1/cmake-build-debug

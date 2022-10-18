@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /home/marcinskic/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/marcinskic/CLionProjects/AdvOOPinCpp/Lab1 -B/home/marcinskic/CLionProjects/AdvOOPinCpp/Lab1/cmake-build-debug
+  command = /home/marcinskic/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/marcinskic/repos/adv-oop-in-cpp/Lab1/Ex1Task1 -B/home/marcinskic/repos/adv-oop-in-cpp/Lab1/Ex1Task1/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

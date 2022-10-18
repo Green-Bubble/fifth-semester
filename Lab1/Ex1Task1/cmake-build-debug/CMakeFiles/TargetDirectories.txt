@@ -1,3 +1,3 @@
-/home/marcinskic/CLionProjects/AdvOOPinCpp/Lab1/cmake-build-debug/CMakeFiles/Lab1.dir
-/home/marcinskic/CLionProjects/AdvOOPinCpp/Lab1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/marcinskic/CLionProjects/AdvOOPinCpp/Lab1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/marcinskic/repos/adv-oop-in-cpp/Lab1/Ex1Task1/cmake-build-debug/CMakeFiles/Lab1.dir
+/home/marcinskic/repos/adv-oop-in-cpp/Lab1/Ex1Task1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/marcinskic/repos/adv-oop-in-cpp/Lab1/Ex1Task1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

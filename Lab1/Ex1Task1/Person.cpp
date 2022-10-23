@@ -7,7 +7,7 @@
 
 using namespace std;
 Person::Person(string name, string surname,int age){
-    this->name = name;
+    this->name = name;  //this czyli wskaznik na obiekt na ktorym wywolywany jest konstruktor/metoda
     this->surname = surname;
     this->age = age;
     cout<<"Konstruktor klasy bazowej - Person"<<endl;

@@ -43,5 +43,5 @@ void Animal::giveVoice() {
 }
 
 void Animal::info() {
-    cout<<"Zwierze "<<name<<" o "<<limbNr<<" konczynach, ktorego status ochrony jest "<<boolalpha<<isProtected<<endl;
+    cout<<"Zwierze "<<name<<" o "<<limbNr<<" konczynach, ktorego status ochrony jest "<<boolalpha<<isProtected<<endl; //boolalpha powoduje ze bool jako string jest wyswietlany w postaci true/false zamiast 1/0
 }

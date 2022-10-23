@@ -14,11 +14,11 @@ private:
     int levelOfGuideSkills = 0;
     int levelOfTrackerSkills = 0;
 public:
-    enum Skill {guideSkills,trackerSkills};
+    enum Skill {guideSkills,trackerSkills}; //Enum w celu zwiekszenia przejrzystosci kodu
 
     Dog();
     Dog(string name, string breed,int levelOfGuideSkills,int levelOfTrackerSkills,int limbNr=4,bool isProtected=false);
-    Dog(string name, int limbNr=4,bool isProtected=false);
+    Dog(string name, int limbNr=4,bool isProtected=false);  //Zakladam ze psy maja 4 konczyny i nie sa chronione
 
     void setSkillLevel(Skill skill,int value);
     int getSkillLevel(Skill skill);

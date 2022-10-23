@@ -12,7 +12,6 @@ Student::Student() {
     cout<<"Konstruktor bez. klasy Student"<<endl;
 }
 
-
 void Student::setIndex(string index) {
     this->index = index;
 }

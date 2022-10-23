@@ -17,7 +17,7 @@ private:
     int levelOfMouseHunting;
     int mice[5];
 public:
-    Cat(string name,int limbNr=4,bool isProtected=false);
+    Cat(string name,int limbNr=4,bool isProtected=false);    //Zakladam ze koty maja 4 konczyny i nie sa chronione
     Cat();
     void initMice(int mice[5]);
     void initCat(int levelOfMouseHunting,int mice[5]);

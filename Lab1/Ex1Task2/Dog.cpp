@@ -45,5 +45,5 @@ void Dog::giveVoice() {
 
 void Dog::info() {
     Animal::info();
-    cout<<"Jest to pies o rasie "<<breed<<" o poziomach "<<levelOfGuideSkills<<" przewodnika i "<<levelOfTrackerSkills<<" tropienia"<<endl;
+    cout<<"Jest to pies o rasie "<<breed<<" o poziomach: "<<levelOfGuideSkills<<" przewodnika i "<<levelOfTrackerSkills<<" tropienia"<<endl;
 }

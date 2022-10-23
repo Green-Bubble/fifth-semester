@@ -43,5 +43,5 @@ void Animal::giveVoice() {
 }
 
 void Animal::info() {
-    cout<<"Zwierze "<<name<<" o "<<limbNr<<" konczynach, ktorego status ochrony jest "<<isProtected<<endl;
+    cout<<"Zwierze "<<name<<" o "<<limbNr<<" konczynach, ktorego status ochrony jest "<<boolalpha<<isProtected<<endl;
 }

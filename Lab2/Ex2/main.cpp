@@ -43,5 +43,5 @@ int main() {
 
     whoWorkMoreThan5Years(employees,4);
     int amount = howManyEarnLessThanMeanBonus(employees,4);
-    cout<<"I jest ich łącznie: "<<amount<<endl;
+    cout<<"I jest ich lacznie: "<<amount<<endl;
 }

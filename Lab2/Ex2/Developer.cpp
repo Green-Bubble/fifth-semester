@@ -26,6 +26,5 @@ float Developer::calculateBonus(int value) {
 
 void Developer::show() {
     Employee::show();
-    cout<<" bonus: "<<calculateBonus(500)<<endl;
 }
 

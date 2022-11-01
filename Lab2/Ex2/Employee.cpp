@@ -21,7 +21,7 @@ Employee::~Employee() {
 }
 
 void Employee::show() {
-    cout<<"Dane: "<<surname<<" wiek "<<age<<" doswiadczenie "<<experience<<" zarobek "<<salary;
+    cout<<"Dane: "<<surname<<" wiek "<<age<<" doswiadczenie "<<experience<<" zarobek "<<salary<<" bonus "<<calculateBonus(100)<<endl;
 }
 
 int Employee::ageEmployment() {

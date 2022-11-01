@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    MaxBuffer meanBuffer(3);
+    MeanBuffer meanBuffer(5);
 
     meanBuffer.add(123456);
     meanBuffer.add(7);
@@ -14,8 +14,16 @@ int main() {
     meanBuffer.add(8);
     meanBuffer.add(67);
     meanBuffer.show();
+    cout<<"Average: "<<meanBuffer.calculate()<<endl;
 
-    cout<<meanBuffer.calculate();
+    MaxBuffer maxBuffer(3);
+    maxBuffer.add(123456);
+    maxBuffer.add(7);
+    maxBuffer.add(1234);
+    maxBuffer.add(8);
+    maxBuffer.add(67);
+    maxBuffer.show();
+    cout<<"Max: "<<maxBuffer.calculate()<<endl;
 
     return 0;
 }

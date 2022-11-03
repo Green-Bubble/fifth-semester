@@ -4,7 +4,7 @@
 #include "TeamLeader.h"
 
 void whoWorkMoreThan5Years(Employee** employees, int length){
-    cout<<"Pracownicy pracujący ponad 5 lat: "<<endl;
+    cout<<"Pracownicy pracujacy ponad 5 lat: "<<endl;
     for(int i = 0; i < length; i++){
         if(employees[i]->getExperience() > 5){
             employees[i]->show();
@@ -20,7 +20,7 @@ int howManyEarnLessThanMeanBonus(Employee** employees, int length){
     bonusSum /= length;
 
     int employeesBelowAverage = 0;
-    cout<<"Pracownicy którzy maja bonus nizszy od sredniej: "<<endl;
+    cout<<"Pracownicy ktorzy maja bonus nizszy od sredniej: "<<endl;
     for(int i = 0; i < length; i++){
         if(employees[i]->calculateBonus(100) < bonusSum){
             employees[i]->show();
@@ -43,5 +43,5 @@ int main() {
 
     whoWorkMoreThan5Years(employees,4);
     int amount = howManyEarnLessThanMeanBonus(employees,4);
-    cout<<"I jest ich łącznie: "<<amount<<endl;
+    cout<<"I jest ich lacznie: "<<amount<<endl;
 }

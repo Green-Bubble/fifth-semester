@@ -3,7 +3,7 @@
 #include "Array.h"
 
 int main() {
-    Array<int> array1;
+    /*Array<int> array1;
 
     array1.add(4);
     array1.add(2);
@@ -14,20 +14,20 @@ int main() {
     array1.show();
 
     cout<<"Max: "<<array1.getMax()<<endl;
-    cout<<"Na indeks 2: "<<array1.getElement(2)<<endl;
+    cout<<"Na indeks 2: "<<array1.getElement(2)<<endl;*/
 
-    Array<string> array2;
+    Array array2/*<string*/(4);
 
-    array2.add("bin");
-    array2.add("verheiratet");
-    array2.add("nicht");
-    array2.add("Ich");
+    //add("bin");
+    //array2.add("verheiratet");
+    //array2.add("nicht");
+    //array2.add("Ich");
 
-    array2.show();
+    //array2.show();
     //array2.sort();
-    array2.show();
+    //array2.show();
 
-    cout<<"Max: "<<array2.getMax()<<endl;
-    cout<<"Na indeks 1: "<<array2.getElement(1)<<endl;
+    //cout<<"Max: "<<array2.getMax()<<endl;
+    //cout<<"Na indeks 1: "<<array2.getElement(1)<<endl;
     return 0;
 }

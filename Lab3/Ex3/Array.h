@@ -10,7 +10,7 @@
 
 using namespace std;
 
-/*template <typename T>
+template <typename T>
 class Array {
 private:
     T* array;
@@ -64,19 +64,19 @@ public:
     T getElement(int index){
         return array[index];
     }
-};*/
+};
 
-//template<>
-class Array/*<string>*/{
+template<>
+class Array<string>{
 private:
     string* array;
     int size;
     int index = 0;
 public:
     Array(int size){
-        //index = 0;
-        //this->size = size;
-        //array = new string [size];
+        index = 0;
+        this->size = size;
+        array = new string [size];
     }
     Array() {
         index = 0;
@@ -84,7 +84,7 @@ public:
         array = new string [10];
     }
     virtual ~Array() {
-        delete array; //THISS!ERWwHETUHIOSJFH!@!>@?!
+        delete []array; //THISS!ERWwHETUHIOSJFH!@!>@?!
     }
 
     void sort() {

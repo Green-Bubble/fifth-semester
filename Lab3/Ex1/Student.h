@@ -8,7 +8,7 @@
 #include <iostream>
 using namespace std;
 
-template <typename T>
+template <typename T>   //Klasa szablonowa
 class Student
 {
 private:
@@ -32,12 +32,12 @@ public:
         cout <<mark<<endl;
     }
 };
-template<>
+template<>  //Specjalizacja metody showMark dla typu int
 void Student<int>::showMark()
 {
     cout <<"Twoja ocena to: "<<mark<<endl;
 }
-template<>
+template<>  //Specjalizacja całej klasy dla typu string
 class Student<string>
 {
 private:

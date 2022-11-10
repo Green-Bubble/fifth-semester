@@ -7,9 +7,10 @@
 
 #include <iostream>
 using namespace std;
+//W pliku header są zawarte definicje a nie tylko deklaracje, wynika to z przyjętej praktyki dla szablonów
 
-template <typename T>
-class Adding
+template <typename T>   //Szablon klasy przechowującej dowolny element który obsługuje operator '+'
+class Adding                //W przeciwnym wypadku metoda add nie będzie działać poprawnie
 {
 private:
     T element;

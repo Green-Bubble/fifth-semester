@@ -14,6 +14,9 @@ class City {
 private:
     vector<Citizen> citizens;
     string cityName;
+
+    template<typename UnaryPredicate>
+    int filterCount(UnaryPredicate Predicate);
 public:
     City(string cityName);
     void addCitizen(Citizen citizen);
@@ -21,9 +24,9 @@ public:
     void showCitizens();
     void showCity();
     int women();
-    int cityCitizens();
     int adults();
-    void postalCodes();
+    int cityCitizens();
+    int postalCodes(bool doShowStatistic);
 };
 
 

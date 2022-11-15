@@ -30,6 +30,8 @@ Citizen generateRandomCitizen(){
         int nameNumber = rand()%10+10;
         return *(new Citizen(names[nameNumber],surnames[surnameNumber],age,Citizen::Female,postalCode.str()));
     }
+
+
 }
 
 void showCities(vector<City> c){
@@ -49,11 +51,20 @@ void sort_cities(vector <City> &c){
 }
 int main() {
     srand(time(NULL));
+    City city = *(new City("Lublin"));
 
     for(int i = 0; i < 10; i++){
-        generateRandomCitizen().show();
-        cout<<endl;
+        Citizen citizen = generateRandomCitizen();
+        city.addCitizen(citizen);
     }
+    city.showCitizens();
+
+    cout<<"Podaj nazwisko i wiek osoby do usunięcia: ";
+    string surname;
+    int age;
+    cin>>surname>>age;
+    city.deleteCitizen(surname,age);
+    city.showCitizens();
 
     return 0;
 }

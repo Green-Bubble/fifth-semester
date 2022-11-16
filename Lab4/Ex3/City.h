@@ -15,18 +15,19 @@ private:
     vector<Citizen> citizens;
     string cityName;
 
-    template<typename UnaryPredicate>
+    template<typename UnaryPredicate>   //Funkcja prywatna na wewnętrzne potrzeby obiektów
     int filterCount(UnaryPredicate Predicate);
 public:
     City(string cityName);
     void addCitizen(Citizen citizen);
-    void deleteCitizen(string surname, int age);
+    void deleteCitizen(string surname, int age);    //Usuwa pierwszy element spełniający warunek
+    void deleteCitizens(string surname, int age);   //Usuwa wszystkie elementy spełniające warunek
     void showCitizens();
     void showCity();
     int women();
     int adults();
     int cityCitizens();
-    int postalCodes(bool doShowStatistic);
+    int postalCodes(bool doShowStatistic);  //Argument bool żeby nie wyświetlać zawsze wszystkich kodów pocztowych przy zliczaniu ich ilości
 };
 
 

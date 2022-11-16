@@ -9,7 +9,7 @@
 using namespace std;
 class Citizen {
 public:
-    enum Gender {Male, Female, Other};
+    enum Gender {Male, Female};
 private:
     string name;
     string surname;
@@ -23,7 +23,7 @@ public:
 
     void show();
 
-    const string &getName() const;
+    const string &getName() const; //Gettery z const referencją, nie zostaje utworzona niepotrzebnie kopia używając referencji a dzięki const zostaje zablokowana edycja
 
     const string &getSurname() const;
 

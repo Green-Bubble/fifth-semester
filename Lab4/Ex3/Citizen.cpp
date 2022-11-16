@@ -23,9 +23,6 @@ void Citizen::show() {
         case Female:
             genderStr = "Female";
             break;
-        case Other:
-            genderStr = "Other";
-            break;
     }
     cout<<"Citizen: "<<name<<" "<<surname<<" "<<age<<"y/o, gender: "<<genderStr<<" living at: "<<postalCode<<" postalCode";
 }

@@ -7,40 +7,38 @@
 #include "Citizen.h"
 #include "City.h"
 
+//------------------------START: KOD NIEWYMAGANY, DO UŁATWIENIA PRACY-----------------------------
 string names[20] = {"Marek","Marcin","Janusz","Bohdan","Nikita","Robert","Kamil","Maciej"
                     ,"Adam","Bartek","Ewa","Anna","Irena","Alicja","Agata","Elzbieta",
                     "Daria","Natalia","Julia","Katarzyna"};
-string surnames[20] = {"Kowalski","Krolikowski","Nowak","Scirka","Solarski","Miłosz","Lach",
-                       "Surtel","Skic","Łopaciak","Głusiec","Pol","Metod","Niemiec",
-                       "Tusk","Burzuj","Czerniak","Szalak","Psiarski","Tararajko"};
+string surnames[20] = {"Kowalski","Krolikowski","Nowak","Scirka","Solarski","Milosz","Kapuscinski",
+                       "Toporowski","Skic","Lopaciak","Glusiec","Pol","Baran","Niemiec",
+                       "Wojcik","Wozniak","Czerniak","Szalak","Psiarski","Tararajko"};
 
 string citiesNames[5] = {"Lublin","Swidnik","Biala Podlaska","Zamosc","Krasnik"};
 
-enum FindExtremesMode {MostPostalCodes,LeastCitizens};
-
 Citizen generateRandomCitizen(int rangeOfPostalCodes){
-    int surnameNumber = rand()%20;
-    int age = rand()%100+1;
-    stringstream postalCode;
-    postalCode << "21-"<<setw(3)<<setfill('0')<<rand()%rangeOfPostalCodes;
 
-    int genderNumber = rand()%100;
-    if(genderNumber == 0){
-        int nameNumber = rand()%20;
-        return *(new Citizen(names[nameNumber],surnames[surnameNumber],age,Citizen::Other,postalCode.str()));
-    } else if(genderNumber < 50){
-        int nameNumber = rand()%10;
-        return *(new Citizen(names[nameNumber],surnames[surnameNumber],age,Citizen::Male,postalCode.str()));
-    } else {
-        int nameNumber = rand()%10+10;
-        return *(new Citizen(names[nameNumber],surnames[surnameNumber],age,Citizen::Female,postalCode.str()));
-    }
+    Citizen::Gender gender = static_cast<Citizen::Gender>(rand()%2);
+
+    //Wykorzystanie faktu że w C++ enum może być używany jak zwykły int.
+    string name = names[rand()%10+(10*gender)]; //Jeżeli gender = 0 to będzie wybierać pierwsze 10 imion (męskie), jak 1 to ostatnie 10 (żeńskie)
+
+    string surname = surnames[rand()%20];
+
+    int age = rand()%100+1;
+
+    stringstream postalCodeStream;  //Użycie stringstream dla ułatwienia zachowania formatu poprawnego dla kodów pocztowych
+    postalCodeStream << "21-"<<setw(3)<<setfill('0')<<rand()%rangeOfPostalCodes;    //setw(int) - minimalna szerokosc następnego ciągu, setfill(char) - znaki wypełniające jeżeli podany ciąg krótszy od setw()
+    string postalCode = postalCodeStream.str(); //Konwersja na string
+
+    return *(new Citizen(name,surname,age,gender,postalCode));
 }
 
 City generateRandomCity(){
     City city = *(new City(citiesNames[rand()%5]));
-    int rangeOfPostalCodes = (rand()%990)+10;
-    int citizensAmount = (rand()%99900)+100;
+    int rangeOfPostalCodes = (rand()%100)+2;    //Określenie przedziału znaków pocztowych w danym mieście
+    int citizensAmount = (rand()%100)+10;
 
     for(int i = 0; i < citizensAmount; i++){
         Citizen citizen = generateRandomCitizen(rangeOfPostalCodes);
@@ -49,6 +47,7 @@ City generateRandomCity(){
 
     return city;
 }
+//------------------------KONIEC: KOD NIEWYMAGANY, DO UŁATWIENIA PRACY-----------------------------
 
 void showCities(vector<City> c){
     for(auto iterator = c.begin(); iterator != c.end();iterator++){
@@ -56,71 +55,101 @@ void showCities(vector<City> c){
     }
 }
 
-template <typename UnaryPredicate>
-City findExtremeCity(vector<City> c,UnaryPredicate Predicate){
-    return *(max_element(c.begin(),c.end(),Predicate));
+void MostPostalCodesFunc(vector<City> c){
+    City city = *(max_element(c.begin(),c.end(),[](City a, City b) {    //funckja max_element oczekuje predykatu porównującego dwie wartości, zwrócenie true oznacza że drugi argument predykatu jest "max" i z nim będą porównywane kolejne wartości
+        return a.postalCodes(false) < b.postalCodes(false); //dlatego jest true jeśli drugie miasto ma więcej znaczków
+    }));
+
+    cout<<"Najwiecej znaczkow pocztowych ma: ";
+    city.showCity();
+    auto temp = city.postalCodes(true);
+    cout<<"Z wynikiem: "<<temp<<endl;
 }
+
+void LeastCitizensFunc(vector<City> c){
+    City city = *(min_element(c.begin(),c.end(),[](City a, City b) {    //natomiast w min_element, jeżeli predykat zwróci true to do dalszych porównań wybrany zostanie argument 1 jako "min"
+        return a.cityCitizens() < b.cityCitizens();
+    }));
+
+    cout<<"Najmniej mieszkancow ma: ";
+    city.showCity();
+    cout<<"Z wynikiem: "<<city.cityCitizens()<<endl;
+}
+
+//Enum dla większej czytelności
+enum FindExtremesMode {MostPostalCodes,LeastCitizens};
 
 void the_most(vector<City> c, FindExtremesMode mode){
     switch(mode){
         case MostPostalCodes: {
-            City city = findExtremeCity(c, [](City a, City b) {
-                return a.postalCodes(false) < b.postalCodes(false);
-            });
-            cout<<"Najwiecej znaczkow pocztowych ma: ";
-            city.showCity();
-            cout<<"Z wynikiem: "<<city.postalCodes(false)<<endl;
+            MostPostalCodesFunc(c);
             break;
         }
         case LeastCitizens:
-            City city = findExtremeCity(c, [](City a, City b) {
-                return a.cityCitizens() > b.cityCitizens();
-            });
-            cout<<"Najmniej mieszkancow ma: ";
-            city.showCity();
-            cout<<"Z wynikiem: "<<city.cityCitizens()<<endl;
+            LeastCitizensFunc(c);
             break;
     }
+    cout<<endl;
 }
 
 
 void statatistic(vector<City> c){
-
+    for_each(c.begin(),c.end(),[](City city){
+        cout<<"\t\t";
+        city.showCity();
+        cout<<"Liczba mieszkancow: "<<city.cityCitizens()<<endl;
+        cout<<city.cityCitizens()-city.women()<<" Mezczyzn i "<<city.women()<<" Kobiet"<<endl;
+        cout<<city.adults()<<" Pelnoletnich i "<<city.cityCitizens()-city.adults()<<" Niepelnoletnich";
+        cout<<endl<<endl;
+    });
 }
 
 void sort_cities(vector <City> &c){
-
+    sort(c.begin(),c.end(),[](City c1, City c2){    //Funkcja sort z predykatem, jeżeli zwraca true to oznacza że argumenty 1 i 2 są w odpowiedniej kolejności
+       return c1.cityCitizens() < c2.cityCitizens();    //W tym wypadku oczekiwana jest kolejność rosnąca według liczby mieszkańców
+    });
 }
-int main() {
-    srand(time(NULL));
 
+int main() {
+    srand(time(NULL));  //Niezbędne do poprawnego działania rand()
 
     vector<City> cities;
 
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 5; i++){
         cities.push_back(generateRandomCity());
     }
 
-    cities[0].showCitizens();
-    cout<<"Liczba kobiet: "<<cities[0].women()<<endl;
-    cout<<"Liczba dorosłych: "<<cities[0].adults()<<endl;
+    cout<<"--------------WYGENEROWANE MIASTA-------------------"<<endl;
+    statatistic(cities);
+    cout<<"--------------POSORTOWANE MIASTA-------------------"<<endl;
+    sort_cities(cities);
+    statatistic(cities);
+    cout<<"--------------MIASTA Z EKSTREMAMI-------------------"<<endl;
+    the_most(cities,LeastCitizens);
+    the_most(cities,MostPostalCodes);
+    cout<<"--------------PRZYKLADOWE UZYCIA-------------------"<<endl;
+    cout<<"showCity(): "<<endl;
+    cities[0].showCity();
+    cout<<endl;
 
-    /*cout<<"Podaj nazwisko i wiek osoby do usunięcia: ";
+    cout<<"postalCodes(true): "<<endl;
+    cities[0].postalCodes(true);
+    cout<<endl;
+
+    cout<<"showCitizens(): "<<endl;
+    cities[0].showCitizens();
+    cout<<endl;
+
+    cout<<"deleteCitizen(surname,age): "<<endl;
+    cout<<"Liczba mieszkancow przed usunieciem: "<<cities[0].cityCitizens()<<endl;
+    cout<<"Podaj nazwisko i wiek osoby do usunięcia (nazwisko <ENTER> wiek): ";
     string surname;
     int age;
     cin>>surname>>age;
-    city.deleteCitizen(surname,age);
-    city.showCitizens();
-    cout<<"Liczba kobiet: "<<city.women()<<endl;
-    cout<<"Liczba dorosłych: "<<city.adults()<<endl;*/
-    cities[0].postalCodes(true);
-    showCities(cities);
-    for_each(cities.begin(),cities.end(),[](City city) {
-        city.showCity();
-        cout<<"Posiada tyle mieszkancow: "<<city.cityCitizens()<<endl;
-    });
-    cout<<"A najwiecej kodow posiada: "<<endl;
-    the_most(cities,LeastCitizens);
+    cities[0].deleteCitizen(surname,age);
+    cout<<"Liczba mieszkancow po usunieciu: "<<cities[0].cityCitizens()<<endl;
+
+    cout<<endl;
 
     return 0;
 }

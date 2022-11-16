@@ -25,7 +25,7 @@ int main() {
             list.push_front(elem);
         }
     }
-
+    cout<<"------------------STWORZONA LISTA------------------------"<<endl;
     for_each(list.begin(),list.end(), showElement<int>);
     return 0;
 }

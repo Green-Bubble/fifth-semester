@@ -21,7 +21,7 @@ Citizen generateRandomCitizen(int rangeOfPostalCodes){
 
     Citizen::Gender gender = static_cast<Citizen::Gender>(rand()%2);
 
-    //Wykorzystanie faktu że w C++ enum może być używany jak zwykły int.
+    //Wykorzystanie faktu że w C++ enum może być używany jako int.
     string name = names[rand()%10+(10*gender)]; //Jeżeli gender = 0 to będzie wybierać pierwsze 10 imion (męskie), jak 1 to ostatnie 10 (żeńskie)
 
     string surname = surnames[rand()%20];
@@ -29,7 +29,7 @@ Citizen generateRandomCitizen(int rangeOfPostalCodes){
     int age = rand()%100+1;
 
     stringstream postalCodeStream;  //Użycie stringstream dla ułatwienia zachowania formatu poprawnego dla kodów pocztowych
-    postalCodeStream << "21-"<<setw(3)<<setfill('0')<<rand()%rangeOfPostalCodes;    //setw(int) - minimalna szerokosc następnego ciągu, setfill(char) - znaki wypełniające jeżeli podany ciąg krótszy od setw()
+    postalCodeStream << "21-"<<setw(3)<<setfill('0')<<rand()%rangeOfPostalCodes;    //setw(int) - minimalna szerokosc następnego ciągu, setfill(char) - znaki wypełniające jeżeli podany ciąg jest krótszy od setw()
     string postalCode = postalCodeStream.str(); //Konwersja na string
 
     return *(new Citizen(name,surname,age,gender,postalCode));
@@ -37,7 +37,7 @@ Citizen generateRandomCitizen(int rangeOfPostalCodes){
 
 City generateRandomCity(){
     City city = *(new City(citiesNames[rand()%5]));
-    int rangeOfPostalCodes = (rand()%100)+2;    //Określenie przedziału znaków pocztowych w danym mieście
+    int rangeOfPostalCodes = (rand()%100)+2;    //Określenie przedziału kodów pocztowych w danym mieście
     int citizensAmount = (rand()%100)+10;
 
     for(int i = 0; i < citizensAmount; i++){
@@ -57,10 +57,10 @@ void showCities(vector<City> c){
 
 void MostPostalCodesFunc(vector<City> c){
     City city = *(max_element(c.begin(),c.end(),[](City a, City b) {    //funckja max_element oczekuje predykatu porównującego dwie wartości, zwrócenie true oznacza że drugi argument predykatu jest "max" i z nim będą porównywane kolejne wartości
-        return a.postalCodes(false) < b.postalCodes(false); //dlatego jest true jeśli drugie miasto ma więcej znaczków
+        return a.postalCodes(false) < b.postalCodes(false); //dlatego jest true jeśli drugie miasto ma więcej kodów
     }));
 
-    cout<<"Najwiecej znaczkow pocztowych ma: ";
+    cout<<"Najwiecej kodow pocztowych ma: ";
     city.showCity();
     auto temp = city.postalCodes(true);
     cout<<"Z wynikiem: "<<temp<<endl;

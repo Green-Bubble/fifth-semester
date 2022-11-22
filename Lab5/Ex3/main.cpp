@@ -26,13 +26,25 @@ map<char,int> stringToMapWithCountedChars(string s){
 }
 
 char findExtraLetter(map<char, int> map1, map<char, int> map2){
+
+    char c = '?';
+
     if(map1.size() < map2.size()){
         swap(map1,map2);
     }
 
-    //for_each(map1.begin(),map1.end())
+    showDictionaryCollection(map1);
+    showDictionaryCollection(map2);
 
-    //showDictionaryCollection(map1);
+    for_each(map1.begin(),map1.end(),[&](auto valueKey){
+       if(map2.find(valueKey.first) == map2.end()){
+           c = valueKey.first;
+       } else if(map2[valueKey.first] != valueKey.second){
+           c = valueKey.first;
+       }
+    });
+
+    return c;
 }
 
 int main() {
@@ -47,7 +59,7 @@ int main() {
 
     showDictionaryCollection(map1);
 
-    findExtraLetter(map1,map3);
+    cout<<"Dodatkowy znak: "<<findExtraLetter(map2,map1);
 
     return 0;
 }

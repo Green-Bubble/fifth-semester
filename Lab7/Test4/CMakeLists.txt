@@ -13,7 +13,7 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(Test4 main.cpp)
+add_executable(Test4 main.cpp cokolwiek.cpp cokolwiek.h cokolwiek.ui)
 target_link_libraries(Test4
         Qt5::Core
         Qt5::Gui

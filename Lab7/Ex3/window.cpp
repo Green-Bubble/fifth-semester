@@ -11,7 +11,7 @@ Window::Window(QWidget *parent) :
         QWidget(parent){
     setFixedSize(1000,800);
 
-    //------Projektowanie interfejsu-----------
+    //-----------------Projektowanie interfejsu----------------------
     //Tworzenie kraju
     countryName = new QLineEdit(this);
     countryName->setGeometry(0,0,200,20);
@@ -25,7 +25,16 @@ Window::Window(QWidget *parent) :
     addCountryBtn->setGeometry(350, 0, 100, 20);
     QObject::connect(addCountryBtn,SIGNAL(clicked()), this, SLOT(addCountry()));
 
-    //Wyświetlanie
+    //Usuwanie kraju
+    countryToDelete = new QLineEdit(this);
+    countryToDelete->setGeometry(0,30,200,20);
+    countryToDelete->setPlaceholderText("Nazwa kraju do usunięcia");
+
+    deleteCountryBtn = new QPushButton("Usuń kraj",this);
+    deleteCountryBtn->setGeometry(230,30,100,20);
+    connect(deleteCountryBtn,SIGNAL(clicked()),this,SLOT(deleteCountry()));
+
+    //---------Wyświetlanie---------
     display = new QTextBrowser(this);
     display->setGeometry(0,200,200,300);
 
@@ -38,8 +47,18 @@ Window::Window(QWidget *parent) :
     whatToShow->addItem("Kraj");
     QObject::connect(whatToShow, SIGNAL(activated(int)),this, SLOT(updateDisplay(int)));
 
-    //Zakres
+    //Sortowanie
+    sortLabel = new QLabel("Sortowanie: ",this);\
+    sortLabel->setGeometry(0,70,200,20);
 
+    sortType = new QComboBox(this);
+    sortType->setGeometry(0,90,200,20);
+    sortType->addItem("Domyślne");
+    sortType->addItem("Populacja rosnąco");
+    sortType->addItem("Populacja malejąco");
+    connect(sortType,SIGNAL(activated(int)),this,SLOT(updateDisplay(int)));
+
+    //Zakres
     doRange = new QCheckBox(this);
     doRange->setGeometry(0,120,20,20);
     connect(doRange, SIGNAL(stateChanged(int)),this,SLOT(updateDisplay()));
@@ -72,6 +91,7 @@ void Window::addCountry() {
 
 void Window::showFull(){
     display->clear();
+    QVector<QPair<QString,int>> temp;
 
     for (auto it = countries.begin(); it != countries.end(); it++){
         if(doRange->isChecked()) {
@@ -80,15 +100,22 @@ void Window::showFull(){
             }
         }
 
-        std::stringstream text;
-        text << "Population: " << std::setw(10) << std::setfill(' ') << std::to_string(it.value()) << "    "
-             << it.key().toStdString();
-        display->append(QString::fromStdString(text.str()));
+        temp.append(*new QPair<QString,int>(it.key(),it.value()));
     }
+
+    sortVector(temp);
+
+    std::for_each(temp.begin(),temp.end(),[&](auto pair){
+        std::stringstream text;
+        text << "Population: " << std::setw(10) << std::setfill(' ') << std::to_string(pair.second) << "    "
+             << pair.first.toStdString();
+        display->append(QString::fromStdString(text.str()));
+    });
 }
 
 void Window::showOnlyCountries(){
     display->clear();
+    QVector<QPair<QString,int>> temp;
 
     for (auto it = countries.begin(); it != countries.end(); it++){
         if(doRange->isChecked()){
@@ -96,8 +123,15 @@ void Window::showOnlyCountries(){
                 continue;
             }
         }
-        display->append(it.key());
+
+        temp.append(*new QPair<QString,int>(it.key(),it.value()));
     }
+
+    sortVector(temp);
+
+    std::for_each(temp.begin(),temp.end(),[&](auto pair) {
+        display->append(pair.first);
+    });
 }
 
 void Window::updateDisplay() {
@@ -106,7 +140,6 @@ void Window::updateDisplay() {
 }
 
 void Window::updateDisplay(int index) {
-    qDebug() << index;
 
     switch(index){
         case 0:
@@ -114,6 +147,27 @@ void Window::updateDisplay(int index) {
             break;
         case 1:
             showOnlyCountries();
+            break;
+    }
+}
+
+void Window::deleteCountry() {
+    auto key = countryToDelete->text();
+    countries.remove(key);
+    updateDisplay();
+}
+
+void Window::sortVector(QVector<QPair<QString, int>> &vector) {
+    switch (sortType->currentIndex()) {
+        case 1:
+            std::sort(vector.begin(),vector.end(),[](auto el1, auto el2){
+                return el1.second < el2.second;
+            });
+            break;
+        case 2:
+            std::sort(vector.begin(),vector.end(),[](auto el1, auto el2){
+                return el1.second > el2.second;
+            });
             break;
     }
 }

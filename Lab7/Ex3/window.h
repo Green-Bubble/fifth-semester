@@ -18,6 +18,8 @@
 #include <QCheckBox>
 
 #include <QString>
+#include <QVector>
+#include <QPair>
 #include <QMap>
 
 #include <sstream>
@@ -37,23 +39,33 @@ public:
 
 private slots:
     void addCountry();
+    void deleteCountry();
     void updateDisplay();
     void updateDisplay(int index);
 private:
 
+    void sortVector(QVector<QPair<QString,int>> &vector);
     void showFull();
     void showOnlyCountries();
     QMap<QString,int> countries;
 
-    //Stwórz państwo
+    //Tworzenie państwa
     QPushButton* addCountryBtn;
     QLineEdit* countryName;
     QSpinBox* populationSize;
+
+    //Usuwanie państa
+    QLineEdit* countryToDelete;
+    QPushButton* deleteCountryBtn;
 
     //Wyświetlanie
     QTextBrowser* display;
     QComboBox* whatToShow;
     QLabel* whatToShowLbl;
+
+    //Sortowanie
+    QLabel* sortLabel;
+    QComboBox* sortType;
 
     //Zakres
     QLabel* rangeLbl;

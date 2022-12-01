@@ -1,0 +1,15 @@
+#include <iostream> //dolaczenie biblioteki
+using namespace std; //przestrzen nazw
+int main() //funkcja main
+{
+    int a,b,il=1; //deklaracja zmiennych
+    cout<<"Podaj liczbe a : "<<endl; //wyswietlenie komunikatu na konsole
+    cin>>a; //wczytanie od uzytkownika
+    cout<<"Podaj liczbe b : "<<endl;
+    cin>>b;
+    for(int i=1;i<=b;i++) //petla obliczajaca a^b
+        il=il*a; //aktualizacja zmiennej il
+
+    cout<<"a^b jeest rowne: "<<il<<endl; //wyswietlenie wyniku
+    return 0;
+}

@@ -7,6 +7,7 @@ int main() {
 
     while(sum != 21){
         try{
+            std::cout<<"Podaj numer: ";
             std::cin>>number;
             if((sum+number) > 21){
                 throw -1;
@@ -21,5 +22,5 @@ int main() {
         }
     }
 
-    return -123;
+    return 0;
 }

@@ -1,19 +1,42 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <algorithm>
 
+#include "StudentsFile.h"
+
 int main() {
-    //students.sort (by: { $0.average < $1.average})
+    StudentsFile studentsFile;
+    std::fstream file;
 
-    std::vector<int> inty = {5,34,123,65,3,12,-124};
-    int granica = 5;
+    while(true){
+        std::string path;
+        std::cout<<"Podaj sciezke do pliku:";
+        std::cin>>path;
 
-    std::cout<<*std::find_if(inty.begin(),inty.end(),[&](int a1){
-        return a1 = granica;
-    });
+        file.open(path);
 
-    std::for_each(inty.begin(),inty.end(),[](int el){
+        if(!file.is_open()){
+            std::cout<<"Niepowodzenie otwierania pliku, sprobuj ponownie"<<std::endl;
+            continue;
+        }
+
+        break;
+    }
+
+    studentsFile.readFromFile(file);
+
+    auto cus = studentsFile.split("imie;nazwisko;plec(KM);ocena;email",';');
+
+    std::for_each(cus.begin(), cus.end(),[](auto el){
         std::cout<<el<<" ";
     });
+    std::cout<<std::endl;
+
+    std::cout<<"1 - Wyswietlenie ksiazki adresowej"<<std::endl;
+    std::cout<<"2 - Dodaj nowa osobe"<<std::endl;
+
     return 0;
 }
+
+

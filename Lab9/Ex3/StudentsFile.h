@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <vector>
 #include <iomanip>
+#include <regex>
 
 #include "Student.h"
 
@@ -22,11 +23,11 @@ private:
 
 
 public:
-    std::string capitalizeFirstLetter(std::string text);
     std::vector<std::string> split(std::string text,char delim);
-
+    void addNewStudent();
 
     bool readFromFile(std::fstream &file);
+    void saveToFile(std::string path);
     void showStudents();
 };
 

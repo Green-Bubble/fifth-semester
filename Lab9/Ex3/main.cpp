@@ -8,9 +8,9 @@
 int main() {
     StudentsFile studentsFile;
     std::fstream file;
+    std::string path;
 
     while(true){
-        std::string path;
         std::cout<<"Podaj sciezke do pliku:";
         std::cin>>path;
 
@@ -26,17 +26,36 @@ int main() {
 
     studentsFile.readFromFile(file);
 
-    auto cus = studentsFile.split("imie;nazwisko;plec(KM);ocena;email",';');
+    while(true){
+        char choice;
+        fflush(stdin);
 
-    std::for_each(cus.begin(), cus.end(),[](auto el){
-        std::cout<<el<<" ";
-    });
-    std::cout<<std::endl;
+        std::cout<<"1 - Wyswietlenie ksiazki adresowej"<<std::endl;
+        std::cout<<"2 - Dodaj nowa osobe"<<std::endl;
+        std::cout<<"3 - Wyszukaj po nazwisku"<<std::endl;
+        std::cout<<"4 - Wygeneruj pliki wedlug plci"<<std::endl;
+        std::cout<<"5 - Wyswietl wybrana liczbe studentow"<<std::endl;
+        std::cout<<"6 - Posortuj wedlug ocen rosnaco"<<std::endl;
+        std::cout<<"7 - Opusc program"<<std::endl;
 
-    std::cout<<"1 - Wyswietlenie ksiazki adresowej"<<std::endl;
-    std::cout<<"2 - Dodaj nowa osobe"<<std::endl;
+        std::cout<<"Twoj wybor:";
+        std::cin>>choice;
 
-    return 0;
+        switch (choice) {
+            case '1':
+                studentsFile.showStudents();
+                break;
+            case '2':
+                studentsFile.addNewStudent();
+                break;
+            case '7':
+                studentsFile.saveToFile(path);
+                return 0;
+            default:
+                std::cout<<"Nie istnieje opcja "<<choice<<std::endl;
+        }
+
+    }
 }
 
 

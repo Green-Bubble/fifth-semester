@@ -12,6 +12,7 @@
 #include <vector>
 #include <iomanip>
 #include <regex>
+#include<limits>
 
 #include "Student.h"
 
@@ -21,14 +22,25 @@ private:
     std::string header = "imie;nazwisko;plec(KM);ocena;email";
     std::vector<Student> students;
 
-
 public:
+    //Metody ogólnego zastosowania, niepowiązane ściśle z tym zadaniem i jego typami zmiennych
     std::vector<std::string> split(std::string text,char delim);
-    void addNewStudent();
+    void clearInputStreamIfNextCharIsNotSpace();
 
+    //Metody pomocnicze dla tego zadania
     bool readFromFile(std::fstream &file);
     void saveToFile(std::string path);
+    void saveToFile(std::string path,std::vector<Student> students);
+    void showHeader();
+    void showStudents(std::vector<Student> students);
+
+    //Metody stricte powiązane z opcjami dostępnymi dla użytkownika
     void showStudents();
+    void addNewStudent();
+    void showStudentsWithSurname();
+    void createGenderFiles();
+    void showSomeNumberOfStudents();
+    void sortStudentsAscendingByMark();
 };
 
 

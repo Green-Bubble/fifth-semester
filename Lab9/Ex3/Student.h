@@ -20,6 +20,7 @@ public:
     Student();
     Student(const std::string &name, const std::string &surname, char gender, int mark, const std::string &email);
     std::string getTableRow();
+    std::string getCSV();
 };
 
 

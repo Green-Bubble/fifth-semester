@@ -18,3 +18,13 @@ std::string Student::getTableRow() {
             <<std::setw(20)<<email;
     return row.str();
 }
+
+std::string Student::getCSV() {
+    std::stringstream row;
+    row     <<name<<";"
+            <<surname<<";"
+            <<gender<<";"
+            <<mark<<";"
+            <<email;
+    return row.str();
+}

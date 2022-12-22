@@ -48,6 +48,18 @@ int main() {
             case '2':
                 studentsFile.addNewStudent();
                 break;
+            case '3':
+                studentsFile.showStudentsWithSurname();
+                break;
+            case '4':
+                studentsFile.createGenderFiles();
+                break;
+            case '5':
+                studentsFile.showSomeNumberOfStudents();
+                break;
+            case '6':
+                studentsFile.sortStudentsAscendingByMark();
+                break;
             case '7':
                 studentsFile.saveToFile(path);
                 return 0;

@@ -50,7 +50,7 @@
         include_once("functions.php");
         require_once("passwords.php");
 
-        $bd = new Database(["localhost:3306","192.168.1.6:3306"],"root",$mysqlPass,"clients");
+        $bd = new Database("clients");
 
         if(filter_input(INPUT_POST,"submit")){
             $choice = filter_input(INPUT_POST,"submit");

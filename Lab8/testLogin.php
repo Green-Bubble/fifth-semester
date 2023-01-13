@@ -26,7 +26,7 @@
         session_start();
 
         $userManager = new UserManager();
-        $db = new Database(["192.168.1.6:3306","localhost:3306"],"root",$mysqlPass,"clients");
+        $db = new Database(["localhost:3306","192.168.1.6:3306"],"root",$mysqlPass,"clients");
 
         if($id = $userManager->getLoggedInUser($db,session_id())){
             $userArr = $db->executeSQL("SELECT * FROM users WHERE id = $id")->fetch_array(MYSQLI_NUM);

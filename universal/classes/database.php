@@ -1,23 +1,26 @@
 <?php
 class Database {
     private $mysqli;
-    public function __construct($servers, $user, $pass, $table)
+    public function __construct($table)
     {
-        $connected = false;
-        $connectionErrors = "Nie udało się połączenie z serwerami:\n";
-        foreach($servers as $server){
-            try{
-                $this->mysqli = new mysqli($server,$user,$pass,$table);
-            } catch(mysqli_sql_exception $e){
-                $connectionErrors .= "Nieudane połączenie $server\n".$e;
-                continue;
-            }
-            
-            $connected = true;
-            break;
+        global $mysql_address;
+        global $mysql_port;
+        global $mysql_user;
+        global $mysql_pass;
+
+        $server = $mysql_address.":".$mysql_port;
+        $user = $mysql_user;
+        $pass = $mysql_pass;
+        $connectionErrors = "";
+
+        try{
+            $this->mysqli = new mysqli($server,$user,$pass,$table);
+        } catch(mysqli_sql_exception $e){
+            $connectionErrors .= "Nieudane połączenie $server\n".$e;
         }
 
-        if(!$connected){
+
+        if($connectionErrors != ""){
             $connectionErrors = preg_replace("/$pass/","*******",$connectionErrors);
             echo nl2br($connectionErrors);
             exit();
@@ -35,6 +38,14 @@ class Database {
             printf("Failed utf8 change");
             exit();
         }
+    }
+
+    public function protect_string($str) {
+        return $this->mysqli->real_escape_string($str);
+    }
+    
+    public function protect_int($nmb) {
+        return (int)$nmb;
     }
 
     function __destruct() {

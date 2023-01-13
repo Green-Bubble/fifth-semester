@@ -20,11 +20,11 @@
         require_once "../universal/classes/registrationForm.php";
         require_once "../universal/classes/database.php";
         require_once "../universal/functions.php";
-        require_once "../universal/passwords.php";
+        require_once "../universal/env.php";
         require_once "classes/userManager.php";
 
         $userManager = new UserManager();
-        $db = new Database(["192.168.1.6:3306","localhost:3306"],"root",$mysqlPass,"clients");
+        $db = new Database("clients");
 
         if(filter_input(INPUT_GET,'logout',FILTER_VALIDATE_BOOL)){
             $userManager->logout($db);

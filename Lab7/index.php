@@ -15,7 +15,7 @@
         require_once '../universal/passwords.php';
 
         $rf = new RegistrationForm();
-        $db = new Database(["localhost:3306","192.168.1.6:3306"],"root",$mysqlPass,"clients");
+        $db = new Database("clients");
 
         if(filter_input(INPUT_POST,'submit',FILTER_SANITIZE_SPECIAL_CHARS)){
             $user = $rf->checkUser();

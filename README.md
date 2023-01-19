@@ -10,7 +10,7 @@ Class in Uni teaching basics of Swift language. Apart from Lab 1 every program i
 8\. Tuples and Enums </br>
 9\. Structs, Sets and Dictionaries </br>
 10&11\. OOP </br>
-12\. Protocols </br>
+12\. ~Interfaces~ Protocols </br>
 
 ---
 ### Used technologies

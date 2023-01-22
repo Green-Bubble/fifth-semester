@@ -1,0 +1,25 @@
+Ex3
+0.2s = 2*CPRD*DIVA*PREA/MCK
+0.2s = 2*CPRD * DIVA * PREA / 32 000 000
+1 = CPRD * DIVA * PREA / 3 200 000
+3 200 000 = CPRD * DIVA * PREA
+-------------------------------
+Ex4
+408 = 2*CPRD*DIVA*PREA / 64 000 000
+13 056 000 000 = CPRD * DIVA * PREA
+
+---------------TEST---------------
+CPRD = 4 294 967 295
+DIVA * PREA ~= 3.0398
+---------------/TEST--------------
+
+13 056 000 000 = CPRD * DIVA=1 * PREA=4
+CPRD = 3 264 000 000
+CDTY = 1 632 000 000
+---------------------------------
+Ex5
+CPRD = 1023
+CDTY = Wartość z TRIM. 
+PWM_CMRx = 0<<10
+Ustawiasz poprzez PWM_CUPDx
+PWM_CUPD = TRIM

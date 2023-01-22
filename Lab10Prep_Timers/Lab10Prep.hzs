@@ -39,7 +39,7 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="6" y="6" useTextEdit="1" path="main.c" left="0" selected="1" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="19" y="42" useTextEdit="1" path="main.c" left="0" selected="1" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="8" y="7471" useTextEdit="1" openedFrom="E:/5 Semestr/repos/embedded-systems/Lab10Prep_Timers/main.c" path="C:/Users/marci/AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v4/packages/include/targets/AT91SAM7X256.h" left="0" top="7424" codecName="Default"/>
  </Files>
  <ARMCrossStudioWindow activeProject="Lab10Prep" fileDialogDefaultFilter="*.c" autoConnectTarget="" buildConfiguration="ARM Flash Release" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="0"/>

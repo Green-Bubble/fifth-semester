@@ -12,7 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+$frontLink = 'http://localhost:4000';
 
-Route::get('/', function () {
+Route::get('/example', function () {
     return view('welcome');
 });
+
+Route::get('/', function (){
+    return view('home');
+});
+
+Route::redirect('/login',"$frontLink/login");
+Route::redirect('/signup',"$frontLink/signup");

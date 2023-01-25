@@ -1,0 +1,25 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e9ffe9;
+}
+
+#logo {
+    background: no-repeat linear-gradient(135deg, blue 0%,40%, #009705 99%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    width:fit-content;
+    font-weight: 700;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 200px 0;
+}
+
+nav ~ aside {
+    margin-left: auto;
+}

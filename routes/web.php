@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 $frontLink = 'http://localhost:4000';
 
-Route::get('/example', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', function (){
-    return view('home');
+Route::get('/example', function (){
+    return view('example');
 });
 
 Route::redirect('/login',"$frontLink/login");

@@ -1,25 +1,87 @@
+:root {
+    --background-green: #f1fff1;
+
+    --logo-blue: blue;
+    --logo-green: #009705;
+
+   --link-green: #15803d;
+   --font-color:    #525252;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #e9ffe9;
+    background-color: var(--background-green);
+    color: var(--font-color);
 }
 
 #logo {
-    background: no-repeat linear-gradient(135deg, blue 0%,40%, #009705 99%);
+    background: no-repeat linear-gradient(135deg, var(--logo-blue) 0%,40%, var(--logo-green) 99%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
 
     width:fit-content;
     font-weight: 700;
+    font-size: 2.5rem;
 }
 
 .top-bar {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
     padding: 0 200px 0;
+}
+
+.top-bar :any-link {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+.top-bar :any-link:hover {
+    color: var(--link-green);
+}
+
+nav {
+    display: flex;
+    gap: 20px;
 }
 
 nav ~ aside {
     margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
+
+.top-bar :any-link.a-button {
+    color: var(--link-green);
+    padding: 0.7rem 2rem;
+
+    border: var(--link-green) solid 1px;
+    border-radius: 5px;
+}
+
+.top-bar :any-link.a-button:hover {
+    color: var(--background-green);
+    background-color: var(--link-green);
+}
+
+main {
+    display: grid;
+    align-content: flex-start;
+    justify-content: center;
+    justify-items: center;
+}
+
+main h2 {
+    color: #404040;
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+main p {
+    font-size: 1.5rem;
+}
+
+

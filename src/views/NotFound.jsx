@@ -1,7 +1,9 @@
+import '../css/notfound.css'
+
 export default function NotFound(){
     return (
         <>
-            <div>
+            <div id='notfound'>
                 404 - Page Not Found
             </div>
         </>

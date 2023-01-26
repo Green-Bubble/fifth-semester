@@ -31,17 +31,15 @@ export default function DefaultLayout() {
     return (
     <div id='defaultLayout'>
         <header>
-            <div>
-                Header
-            </div>
+            <h1 id='logo'>Habit Forge</h1>
             <div>
                 {user.name}
                 <a href="#" onClick={onLogout} className='btn-logout' >Logout</a>
             </div>
         </header>
         <aside>
-            <Link to="/dashboard">Dashboard</Link>
-            <Link to="/users">Users</Link>
+            <Link to="/habits">Habits</Link>
+            <Link to="/reports">Reports</Link>
         </aside>
         <div className='content'>
             <main>

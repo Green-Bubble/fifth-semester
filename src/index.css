@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
+:root {
+    --background: #f0f9ff;
+
+    --logo-blue: blue;
+    --logo-green: #009705;
+
+    --basic-green: #15803d;
+    --hover-green: #166534;
+    --active-green: #14532d;
+   --font-color:    #525252;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -17,7 +29,7 @@ body {
     padding: 0;
     font-size: 14px;
     color: #212121;
-    background-color: #f6f6f6;
+    background-color: var(--background);
 }
 
 input {
@@ -32,8 +44,30 @@ input {
     margin: 0 0 15px;
 }
 
+input[type="color"] {
+    padding: 0;
+}
+
 input:focus {
-    border-color: #5b08a7;
+    border-color: var(--basic-green);
+}
+
+.blue-green-grad {
+    background: no-repeat linear-gradient(135deg, var(--logo-blue) 0%,40%, var(--logo-green) 99%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#logo {
+    background: no-repeat linear-gradient(135deg, var(--logo-blue) 0%,40%, var(--logo-green) 99%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    min-width:fit-content;
+    font-weight: 700;
+    font-size: 2.5rem;
 }
 
 .btn,
@@ -42,7 +76,7 @@ input:focus {
 .btn-delete {
     font-family: "Roboto", sans-serif;
     outline: 0;
-    background: #5b08a7;
+    background: var(--basic-green);
     border: 0;
     text-decoration: none;
     padding: 15px;
@@ -83,9 +117,12 @@ input:focus {
 }
 
 .btn:hover,
-.btn:active,
 .btn:focus {
-    background: #5b08a7;
+    background: var(--hover-green);
+}
+
+.btn:active {
+    background-color: var(--active-green);
 }
 
 .text-center {
@@ -171,7 +208,11 @@ table > tbody > tr > td {
 }
 
 .login-signup-form .form .message a {
-    color: #5b08a7;
+    background: no-repeat linear-gradient(135deg, var(--logo-blue) 0%,40%, var(--logo-green) 99%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
     text-decoration: none;
 }
 
@@ -181,12 +222,12 @@ table > tbody > tr > td {
 #defaultLayout {
     display: grid;
 
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 200px 1fr;
     grid-template-rows: 80px 1fr;
 }
 
 #defaultLayout aside {
-    background-color: #5b08a7;
+    background-color: #16a34a;
     padding: 1rem;
 }
 
@@ -207,7 +248,7 @@ table > tbody > tr > td {
     grid-column: 1 / -1;
 
     padding: 2rem 3rem;
-    background-color: white;
+    background-color: #f1f5f9;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;

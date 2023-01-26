@@ -1,5 +1,5 @@
 :root {
-    --background-green: #f1fff1;
+    --background-green: #f0f9ff;
 
     --logo-blue: blue;
     --logo-green: #009705;
@@ -12,6 +12,8 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--background-green);
     color: var(--font-color);
+
+    text-align: center;
 }
 
 #logo {
@@ -20,7 +22,7 @@ body {
     -webkit-background-clip: text;
     color: transparent;
 
-    width:fit-content;
+    min-width:fit-content;
     font-weight: 700;
     font-size: 2.5rem;
 }

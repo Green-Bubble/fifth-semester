@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreHabitRequest extends FormRequest
 {
@@ -24,7 +25,19 @@ class StoreHabitRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'type' => [
+                'required',
+                Rule::in(['positiveYN'])
+            ],
+            'color' => 'required|regex:/^#[0-9a-fA-f]{6}$/',
+            'title' => 'required|string|max:255',
+            'description' => '',
+            'frequency' => [
+                'required',
+                Rule::in(['everyday'])
+            ],
+            'startHour' => 'date_format:H:i',
+            'endHour' => 'date_format:H:i|after:startHour'
         ];
     }
 }

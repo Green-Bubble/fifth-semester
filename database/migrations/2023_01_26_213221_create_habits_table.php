@@ -15,7 +15,15 @@ return new class extends Migration
     {
         Schema::create('habits', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->enum('type',['positiveYN','negativeYN','positiveNumerical','negativeNumerical']);
+            $table->string('color');
+            $table->string('title');
+            $table->string('description');
+            $table->enum('frequency',['everyday','times-a-week','every-each-day']);
+            $table->time('startHour');
+            $table->time('endHour');
+
         });
     }
 

@@ -17,13 +17,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->group(function() {
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
+        Route::get('/user', function (Request $request) {
+            return $request->user();
+        });
 
-    Route::post('/logout',[AuthController::class,'logout']);
+        Route::post('/logout',[AuthController::class,'logout']);
 
-    Route::post('/habit/store',[HabitController::class,'store']);
+        Route::post('/habits',[HabitController::class,'index']);
+
+        Route::prefix('/habit')->group(function (){
+            Route::post('/store',[HabitController::class,'store']);
+            Route::put('/{id}',[HabitController::class,'update']);
+            Route::delete('/{id}',[HabitController::class,'destroy']);
+        });
     }
 );
 

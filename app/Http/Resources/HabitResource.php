@@ -14,6 +14,14 @@ class HabitResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'type' => $this->type,
+            'color' => $this->color,
+            'title' => $this->title,
+            'description' => $this->descritption,
+            'frequency' => $this->frequency,
+            'startHour' => $this->startHour,
+            'endHour' => $this->endHour
+        ];
     }
 }

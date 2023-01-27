@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Habit;
 use App\Http\Requests\StoreHabitRequest;
 use App\Http\Requests\UpdateHabitRequest;
+use App\Http\Resources\HabitResource;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class HabitController extends Controller
@@ -15,9 +17,10 @@ class HabitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //return 
+        $user = $request->user();
+        return HabitResource::collection(Habit::orderBy('user_id','asc')->where('user_id',$user->id)->get());
     }
 
     /**
@@ -28,21 +31,7 @@ class HabitController extends Controller
      */
     public function store(StoreHabitRequest $request)
     {
-        $validated = $request->validate([
-            'type' => [
-                'required',
-                Rule::in(['positiveYN'])
-            ],
-            'color' => 'required|regex:/^#[0-9a-fA-f]{6}$/',
-            'title' => 'required|string|max:255',
-            'description' => '',
-            'frequency' => [
-                'required',
-                Rule::in(['everyday'])
-            ],
-            'startHour' => 'date_format:H:i',
-            'endHour' => 'date_format:H:i|after:startHour'
-        ]);
+        $validated = $request->validated();
     }
 
     /**

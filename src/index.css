@@ -10,6 +10,8 @@
     --hover-green: #166534;
     --active-green: #14532d;
    --font-color:    #525252;
+
+   --habit-form-width: 300px;
 }
 
 * {
@@ -257,6 +259,47 @@ table > tbody > tr > td {
 
 #defaultLayout main {
     padding: 2rem;
+    position: relative;
+}
+
+.slide {
+    position: fixed;
+    right: 0;
+    transition: all 0.8s;
+}
+
+#habits .slide {
+    top: 80px;
+}
+
+#habits .slide.hidden {
+    right: -300px;
+}
+
+.habit {
+    
+}
+
+.habit-form {
+    width: var(--habit-form-width);
+}
+
+.habit-form form {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.habit-form form .frequency {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    place-content: center;
+    gap: 5px;
+
+    margin-bottom: 10px;
+}
+
+.habit-form input[type="radio"] {
+    margin: 0;
 }
 
 .animated {

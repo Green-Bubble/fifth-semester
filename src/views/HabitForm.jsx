@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import axiosClient from "../axios-client";
 
-export default function CreateHabit(){
+export default function HabitForm(props){
     const typeRef = useRef();
     const colorRef =  useRef();
     const titleRef = useRef();
@@ -15,6 +15,8 @@ export default function CreateHabit(){
     }
 
     function onSubmit(ev){
+        console.log(props);
+
         ev.preventDefault();
 
         const payload = {
@@ -37,10 +39,11 @@ export default function CreateHabit(){
         })
 
         console.log(payload);
+        props.onSubmit();
     }
 
     return (
-        <form onSubmit={onSubmit} id="create-habit" className="hidden">
+        <form onSubmit={onSubmit} className="hidden">
             <input ref={typeRef} type="hidden" name="type" value="positiveYN"></input>
             <input ref={colorRef} type="color" name="color"></input>
             <label htmlFor="title">Name</label>
@@ -49,7 +52,7 @@ export default function CreateHabit(){
             <input ref={descriptionRef} type="text" name="description" id="description" placeholder="e.g. Did I exercise today"></input>
             <div className="frequency">
                 <label htmlFor="everyday">Everyday</label>
-                <input onChange={onFrequencyChange} type="radio" name="frequency" id="everyday" value="everyday"></input>
+                <input onChange={onFrequencyChange} type="radio" name="frequency" id="everyday" value="everyday" defaultChecked></input>
                 <label htmlFor="times-a-week">Some times per week</label>
                 <input onChange={onFrequencyChange} type="radio" name="frequency" id="times-a-week" value="times-a-week"></input>
                 <label htmlFor="every-each-day">Every some day</label>

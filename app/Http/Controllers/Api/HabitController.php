@@ -22,7 +22,7 @@ class HabitController extends Controller
     public function index(Request $request)
     {
         $user = $request->user();
-        return HabitResource::collection(Habit::orderBy('user_id','asc')->where('user_id',$user->id)->get());
+        return HabitResource::collection(Habit::where('user_id',$user->id)->get());
     }
 
     /**
@@ -35,17 +35,9 @@ class HabitController extends Controller
     {
         try {
             $validated = $request->validated();
+            $validated['user_id'] = $request->user()->id;
             Log::info($validated);
-            Habit::create([
-                'user_id' => $request->user()->id,
-                'type' => $request->input('type'),
-                'color' => $request->input('color'),
-                'title' => $request->input('title'),
-                'description' => $request->input('description'),
-                'frequency' => $request->input('frequency'),
-                'startHour' => $request->input('startHour'),
-                'endHour' => $request->input('endHour')
-            ]);
+            Habit::create($validated);
     
             return response()->json($validated);
         } catch (Exception $e){
@@ -53,22 +45,6 @@ class HabitController extends Controller
         }
         
     }
-/*
-    return [
-        'type' => [
-            'required',
-            Rule::in(['positiveYN'])
-        ],
-        'color' => 'required|regex:/^#[0-9a-fA-f]{6}$/',
-        'title' => 'required|string|max:255',
-        'description' => '',
-        'frequency' => [
-            'required',
-            Rule::in(['everyday'])
-        ],
-        'startHour' => 'date_format:H:i',
-        'endHour' => 'date_format:H:i|after:startHour'
-    ];*/
 
     /**
      * Display the specified resource.
@@ -78,19 +54,31 @@ class HabitController extends Controller
      */
     public function show(Habit $habit)
     {
-        //
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateHabitRequest  $request
-     * @param  \App\Models\Habit  $habit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateHabitRequest $request, Habit $habit)
+    public function update(UpdateHabitRequest $request, $id)
     {
-        //
+        try{
+            $validated = $request->validated();
+
+            Log::info($request->all());
+
+            $habit = Habit::find($id);
+            $habit->update($validated);
+
+            return response()->json($validated);
+        } catch (Exception $e){
+            Log::error($e);
+        }
+        
     }
 
     /**

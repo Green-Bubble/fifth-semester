@@ -1,17 +1,19 @@
 # Habit Tracker Backend
-This project fills two roles.
+Final project for [web-apps-in-php](https://github.com/MarcinSkic/web-apps-in-php) class. This project fills two roles.
 1. Website with static pages generated with PHP for showcasing project (welcome page with hero section) that redirect to actual SPA website.
 2. Backend with API to manage data beetwen SPA and database.
+
+[Link to frontend part of project](https://github.com/MarcinSkic/habit-tracker-react-frontend)
 ## Features
 - DEVELOPMENT
 ## Development
 - SignUp ✔️
 - Login ✔️
 - Logout ✔️
-- Habits C~RUD~: 
+- Habits CRU~D~: 
     - Create Habit ✔️
-    - Read Habit ❌
-    - Update Habit ❌
+    - Read Habit ✔️
+    - Update Habit ✔️
     - Delete Habit ❌
 - Habits Day Marking ~CRU~
     - Create Day Mark ❌

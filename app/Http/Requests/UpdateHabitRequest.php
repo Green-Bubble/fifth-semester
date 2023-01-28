@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Habit;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 
 class UpdateHabitRequest extends FormRequest
@@ -14,7 +16,7 @@ class UpdateHabitRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return true;   //Protection against changing not yours habits
     }
 
     /**
@@ -36,8 +38,8 @@ class UpdateHabitRequest extends FormRequest
                 'required',
                 Rule::in(['everyday'])
             ],
-            'startHour' => 'date_format:H:i',
-            'endHour' => 'date_format:H:i|after:startHour'
+            'startHour' => 'nullable|date_format:H:i',
+            'endHour' => 'nullable|date_format:H:i|after:startHour'
         ];
     }
 }

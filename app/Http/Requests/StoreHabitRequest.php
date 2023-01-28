@@ -14,7 +14,7 @@ class StoreHabitRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -36,8 +36,8 @@ class StoreHabitRequest extends FormRequest
                 'required',
                 Rule::in(['everyday'])
             ],
-            'startHour' => 'date_format:H:i',
-            'endHour' => 'date_format:H:i|after:startHour'
+            'startHour' => 'nullable|date_format:H:i',
+            'endHour' => 'nullable|date_format:H:i|after:startHour'
         ];
     }
 }

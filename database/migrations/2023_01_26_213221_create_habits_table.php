@@ -19,11 +19,11 @@ return new class extends Migration
             $table->enum('type',['positiveYN','negativeYN','positiveNumerical','negativeNumerical']);
             $table->string('color');
             $table->string('title');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->enum('frequency',['everyday','times-a-week','every-each-day']);
-            $table->time('startHour');
-            $table->time('endHour');
-
+            $table->time('startHour')->nullable();
+            $table->time('endHour')->nullable();
+            $table->timestamps();
         });
     }
 

@@ -7,7 +7,9 @@ use App\Models\Habit;
 use App\Http\Requests\StoreHabitRequest;
 use App\Http\Requests\UpdateHabitRequest;
 use App\Http\Resources\HabitResource;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 
 class HabitController extends Controller
@@ -31,8 +33,42 @@ class HabitController extends Controller
      */
     public function store(StoreHabitRequest $request)
     {
-        $validated = $request->validated();
+        try {
+            $validated = $request->validated();
+            Log::info($validated);
+            Habit::create([
+                'user_id' => $request->user()->id,
+                'type' => $request->input('type'),
+                'color' => $request->input('color'),
+                'title' => $request->input('title'),
+                'description' => $request->input('description'),
+                'frequency' => $request->input('frequency'),
+                'startHour' => $request->input('startHour'),
+                'endHour' => $request->input('endHour')
+            ]);
+    
+            return response()->json($validated);
+        } catch (Exception $e){
+            Log::error($e);
+        }
+        
     }
+/*
+    return [
+        'type' => [
+            'required',
+            Rule::in(['positiveYN'])
+        ],
+        'color' => 'required|regex:/^#[0-9a-fA-f]{6}$/',
+        'title' => 'required|string|max:255',
+        'description' => '',
+        'frequency' => [
+            'required',
+            Rule::in(['everyday'])
+        ],
+        'startHour' => 'date_format:H:i',
+        'endHour' => 'date_format:H:i|after:startHour'
+    ];*/
 
     /**
      * Display the specified resource.

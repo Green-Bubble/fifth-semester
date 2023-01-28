@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Habit extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'user_id',
+        'type',
+        'color',
+        'title',
+        'description',
+        'frequency',
+        'startHour',
+        'endHour'
+    ];
 }

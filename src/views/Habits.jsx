@@ -93,7 +93,7 @@ export default function Habits(){
                 <button 
                     onClick={() => {setIsHabitFormOpen(false)}}
                 >Close habit form</button>
-                <HabitForm habit={updatedHabit} onSubmit={getHabits} updateHabit={updateHabit}/>
+                <HabitForm key={updatedHabit !== null ? updatedHabit.id : 0} habit={updatedHabit} onSubmit={getHabits} updateHabit={updateHabit}/>
             </div> 
         </div>
     )

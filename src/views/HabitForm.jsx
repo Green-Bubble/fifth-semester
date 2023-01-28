@@ -10,6 +10,8 @@ export default function HabitForm(props){
     const startHourRef = useRef();
     const endHourRef = useRef();
 
+    const [habit,setHabit] = useState(props.habit);
+
     function onFrequencyChange(ev){
         setFrequency(ev.target.value);
     }
@@ -37,7 +39,8 @@ export default function HabitForm(props){
     }
 
     function onSubmit(ev){
-        console.log(props);
+        console.log("HABIT FORM PROPS",props);
+        console.log("HABIT FORM STATE",habit);
 
         ev.preventDefault();
 
@@ -67,24 +70,24 @@ export default function HabitForm(props){
 
     return (
         <form onSubmit={onSubmit} className="hidden">
-            <input ref={typeRef} type="hidden" name="type" value="positiveYN"></input>
-            <input ref={colorRef} type="color" name="color"></input>
+            <input ref={typeRef} type="hidden" name="type" defaultValue={props.habit !== null ? props.habit.type : "positiveYN"}></input>
+            <input ref={colorRef} type="color" name="color" defaultValue={props.habit !== null ? props.habit.color : ""}></input>
             <label htmlFor="title">Name</label>
-            <input ref={titleRef} type="text" name="title" id="title" placeholder="e.g. Exercise"></input>
+            <input ref={titleRef} type="text" name="title" id="title" placeholder="e.g. Exercise" defaultValue={props.habit !== null ? props.habit.title : ""}></input>
             <label htmlFor="description">Description</label>
-            <input ref={descriptionRef} type="text" name="description" id="description" placeholder="e.g. Did I exercise today"></input>
-            <div className="frequency">
+            <input ref={descriptionRef} type="text" name="description" id="description" placeholder="e.g. Did I exercise today" defaultValue={props.habit !== null ? props.habit.description : ""}></input>
+            <div className="frequency"> 
                 <label htmlFor="everyday">Everyday</label>
-                <input onChange={onFrequencyChange} type="radio" name="frequency" id="everyday" value="everyday" defaultChecked></input>
+                <input onChange={onFrequencyChange} type="radio" name="frequency" id="everyday" value="everyday" defaultChecked={props.habit !== null ? props.habit.frequency === 'everyday' : true}></input>
                 <label htmlFor="times-a-week">Some times per week</label>
-                <input onChange={onFrequencyChange} type="radio" name="frequency" id="times-a-week" value="times-a-week"></input>
+                <input onChange={onFrequencyChange} type="radio" name="frequency" id="times-a-week" value="times-a-week" defaultChecked={props.habit !== null ? props.habit.frequency === 'times-a-week' : false}></input>
                 <label htmlFor="every-each-day">Every some day</label>
-                <input onChange={onFrequencyChange} type="radio" name="frequency" id="every-each-day" value="every-each-day"></input>
+                <input onChange={onFrequencyChange} type="radio" name="frequency" id="every-each-day" value="every-each-day" defaultChecked={props.habit !== null ? props.habit.frequency === 'every-each-day' : false}></input>
             </div>
             <label htmlFor="startShowHour">Show from</label>
-            <input ref={startHourRef} type="time" name="startShowHour" id="startShowHour"></input>
+            <input ref={startHourRef} type="time" name="startShowHour" id="startShowHour" defaultValue={props.habit !== null ? props.habit.startHour : ""}></input>
             <label htmlFor="endShowHour">to</label>
-            <input ref={endHourRef} type="time" name="endShowHour" id="endShowHour"></input>
+            <input ref={endHourRef} type="time" name="endShowHour" id="endShowHour" defaultValue={props.habit !== null ? props.habit.endHour : ""}></input>
             <input type="submit" name="submit" value="Save"></input>
         </form>
     )

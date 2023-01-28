@@ -3,15 +3,14 @@ import Icon from '@mdi/react';
 import { mdiClose , mdiMinus, mdiCheck} from '@mdi/js';
 
 export default function Habit(props) {
-    const [habit,setHabit] = useState(props.habit);
     const [marked,setMarked] = useState(null);
 
     return (
     <div className='habit'>
         <span 
-        style={{color: habit.color}}
-        onClick={() => {props.editHabit(habit.id)}}>
-            {habit.title}
+        style={{color: props.habit.color}}
+        onClick={() => {props.onHabitClick(props.habit)}}>
+            {props.habit.title}
         </span>
         <span 
             className='habit-state'

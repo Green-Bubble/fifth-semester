@@ -14,6 +14,28 @@ export default function HabitForm(props){
         setFrequency(ev.target.value);
     }
 
+    function createHabit(payload){
+        axiosClient.post('/habit/store',payload)
+        .then((response)=>{
+            console.log(response);
+        })
+        .catch((error) => {
+
+            console.log(error.response.data.errors); 
+        })
+    }
+
+    function updateHabit(payload){
+        axiosClient.put(`/habit/${props.habit.id}`,payload)
+        .then((response)=>{
+            console.log(response);
+        })
+        .catch((error) => {
+            console.log(error.response.data.errors);
+        })
+        console.log(props.habit.id);
+    }
+
     function onSubmit(ev){
         console.log(props);
 
@@ -29,18 +51,19 @@ export default function HabitForm(props){
             endHour: endHourRef.current.value,
         }
 
-        axiosClient.post('/habit/store',payload)
-        .then((response)=>{
-            console.log(response);
-        })
-        .catch((error) => {
-
-            console.log(error.response.data.errors); 
-        })
-
+        if(props.habit === null) {
+            console.log("CREATE HABIT");
+            createHabit(payload);
+        } else {
+            console.log("UPDATE HABIT");
+            updateHabit(payload);
+        }
+        
         console.log(payload);
         props.onSubmit();
     }
+
+
 
     return (
         <form onSubmit={onSubmit} className="hidden">

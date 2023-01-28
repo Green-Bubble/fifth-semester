@@ -276,10 +276,6 @@ table > tbody > tr > td {
     right: -300px;
 }
 
-.habit {
-    
-}
-
 .habit-form {
     width: var(--habit-form-width);
 }

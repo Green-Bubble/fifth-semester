@@ -84,11 +84,13 @@ class HabitController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Habit  $habit
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Habit $habit)
+    public function destroy(int $id)
     {
-        //
+        Habit::find($id)->delete();
+
+        return response()->json(['deleted_id' => $id]);
     }
 }

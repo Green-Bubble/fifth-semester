@@ -12,13 +12,13 @@ Final project for [web-apps-in-php](https://github.com/MarcinSkic/web-apps-in-ph
 - Habits CR~UD~: 
     - Create Habit ✔️
     - Read Habit ✔️
-    - Update Habit ✔️/❌
+    - Update Habit ✔️
         - Change Habit values ✔️
-        - Load current values on form opening ❌
-    - Delete Habit ❌
+        - Load current values on form opening ✔️
+    - Delete Habit ✔️
 - Habit visual representation ✔️
 - Habit Day Marking ~CRU~:
-    - Create Day Mark ❌
+    - Create Day Mark ✔️/❌
     - Read Day Mark ❌
     - Update Day Mark ❌
 - Display confirmations ❌

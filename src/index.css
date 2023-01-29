@@ -16,6 +16,23 @@
    --header-height-default-layout: 80px;
 }
 
+.border-box{
+    box-sizing: border-box;
+}
+
+.content-box {
+    box-sizing: content-box;
+}
+
+.border-box,
+.content-box{
+    margin: 10px;
+    padding: 0px;
+    border: 40px solid red;
+    height: 80px;
+    width: 80px;
+}
+
 * {
     box-sizing: border-box;
 }

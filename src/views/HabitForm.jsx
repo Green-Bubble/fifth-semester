@@ -63,14 +63,12 @@ export default function HabitForm(props){
         props.onSubmit();
     }
 
-
-
     return (
-        <form onSubmit={onSubmit} className="hidden">
+        <form onSubmit={onSubmit}>
             <input ref={typeRef} type="hidden" name="type" defaultValue={props.habit !== null ? props.habit.type : "positiveYN"}></input>
             <input ref={colorRef} type="color" name="color" defaultValue={props.habit !== null ? props.habit.color : ""}></input>
             <label htmlFor="title">Name</label>
-            <input ref={titleRef} type="text" name="title" id="title" placeholder="e.g. Exercise" defaultValue={props.habit !== null ? props.habit.title : ""}></input>
+            <input ref={titleRef} type="text" name="title" id="title" placeholder="e.g. Exercise" defaultValue={props.habit?.title ?? ""}></input>
             <label htmlFor="description">Description</label>
             <input ref={descriptionRef} type="text" name="description" id="description" placeholder="e.g. Did I exercise today" defaultValue={props.habit !== null ? props.habit.description : ""}></input>
             <div className="frequency"> 

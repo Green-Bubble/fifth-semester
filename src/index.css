@@ -297,6 +297,9 @@ table > tbody > tr > td {
 }
 
 .habit-form {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
     color: var(--background);
     background-color: var(--hover-green);
 
@@ -309,6 +312,8 @@ table > tbody > tr > td {
 }
 
 .habit-form form {
+    grid-column: 1 / -1;
+
     margin: 10px;
 }
 
@@ -325,6 +330,7 @@ table > tbody > tr > td {
     margin: 0;
 }
 
+.habit-form .delete,
 .habit-form .close {
     box-sizing: content-box;
     color: var(--background);
@@ -340,8 +346,16 @@ table > tbody > tr > td {
     width: 34px;
 }
 
+.habit-form .delete {
+    justify-self: end;
+}
+
 .habit-form .close:hover {
     background-color: var(--active-green);
+}
+
+.habit-form .delete:hover {
+    color: #dd2626;
 }
 
 .habit-form input[type="submit"] {

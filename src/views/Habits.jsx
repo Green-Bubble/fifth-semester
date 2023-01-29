@@ -1,5 +1,5 @@
 import Icon from "@mdi/react";
-import { mdiPlus, mdiCloseThick} from '@mdi/js';
+import { mdiPlus, mdiCloseThick, mdiDelete} from '@mdi/js';
 import { useEffect, useRef, useState } from "react";
 import axiosClient from "../axios-client";
 import Habit from "./Habit";
@@ -43,6 +43,24 @@ export default function Habits(){
         setUpdatedHabit(habit);
     }
 
+    function deleteHabit(){
+        axiosClient.delete(`/habit/${updatedHabit.id}`)
+        .then((response)=>{
+            console.log("DELETE HABIT",response);
+
+        
+            const indToDelete = habits.findIndex(habit => habit.id === response.data.deleted_id);
+            const habitsWithoutDeleted = [...habits];
+            habitsWithoutDeleted.splice(indToDelete,1);
+            setHabits(habitsWithoutDeleted);
+
+            setIsHabitFormOpen(false);
+        })
+        .catch((error) => {
+            console.log(error.response.data.errors);
+        })
+    }
+
     function funnySort(){
         function shuffle(array) {
             let currentIndex = array.length,  randomIndex;
@@ -64,17 +82,6 @@ export default function Habits(){
 
         let huh = habits.slice();
         setHabits(shuffle(huh));
-    }
-
-    const updateHabit = function(habitId,payload){
-        axiosClient.put(`/habit/${habitId}`,null)
-        .then((response)=>{
-            console.log(response);
-        })
-        .catch((error) => {
-            console.log(error.response.data.errors);
-        })
-        console.log(habitId);
     }
 
     return (
@@ -101,7 +108,11 @@ export default function Habits(){
                     className="close"
                     onClick={() => {setIsHabitFormOpen(false)}}
                 ><Icon path={mdiCloseThick} size={1.4}/></button>
-                <HabitForm key={updatedHabit !== null ? updatedHabit.id : 0} habit={updatedHabit} onSubmit={onSubmit} updateHabit={updateHabit}/>
+                {updatedHabit && <button 
+                    className="delete"
+                    onClick={() => {deleteHabit()}}
+                ><Icon path={mdiDelete} size={1.4}/></button>}
+                <HabitForm key={updatedHabit !== null ? updatedHabit.id : 0} habit={updatedHabit} onSubmit={onSubmit}/>
             </div> 
         </div>
     )

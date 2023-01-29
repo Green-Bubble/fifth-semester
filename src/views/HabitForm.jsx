@@ -10,8 +10,6 @@ export default function HabitForm(props){
     const startHourRef = useRef();
     const endHourRef = useRef();
 
-    const [habit,setHabit] = useState(props.habit);
-
     function onFrequencyChange(ev){
         setFrequency(ev.target.value);
     }
@@ -40,7 +38,6 @@ export default function HabitForm(props){
 
     function onSubmit(ev){
         console.log("HABIT FORM PROPS",props);
-        console.log("HABIT FORM STATE",habit);
 
         ev.preventDefault();
 
@@ -88,7 +85,7 @@ export default function HabitForm(props){
             <input ref={startHourRef} type="time" name="startShowHour" id="startShowHour" defaultValue={props.habit !== null ? props.habit.startHour : ""}></input>
             <label htmlFor="endShowHour">to</label>
             <input ref={endHourRef} type="time" name="endShowHour" id="endShowHour" defaultValue={props.habit !== null ? props.habit.endHour : ""}></input>
-            <input type="submit" name="submit" value="Save"></input>
+            <input type="submit" name="submit" value={props.habit === null ? "Forge" : "Update"}></input>
         </form>
     )
 }

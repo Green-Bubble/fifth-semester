@@ -6,12 +6,14 @@
     --logo-blue: blue;
     --logo-green: #009705;
 
+    --aside-green: #16a34a;
     --basic-green: #15803d;
     --hover-green: #166534;
     --active-green: #14532d;
    --font-color:    #525252;
 
-   --habit-form-width: 300px;
+   --habit-form-width: 350px;
+   --header-height-default-layout: 80px;
 }
 
 * {
@@ -225,7 +227,7 @@ table > tbody > tr > td {
     display: grid;
 
     grid-template-columns: 200px 1fr;
-    grid-template-rows: 80px 1fr;
+    grid-template-rows: var(--header-height-default-layout) 1fr;
 }
 
 #defaultLayout aside {
@@ -265,27 +267,52 @@ table > tbody > tr > td {
 .slide {
     position: fixed;
     right: 0;
-    transition: all 0.8s;
+    transition: padding 0.3s, right 0.8s;
 }
 
 #habits .slide {
-    top: 80px;
+    top: var(--header-height-default-layout);
 }
 
 #habits .slide.hidden {
-    right: -300px;
+    right: calc(0px - var(--habit-form-width));
+}
+
+#habits .create-habit-btn {
+    padding-top: 10px;
+    color: var(--background);
+    background-color: var(--basic-green);
+
+    border: none;
+    border-bottom-left-radius: 10px;
+}
+
+#habits .create-habit-btn:hover {
+    padding-right: 20px;
+}
+
+#habits .create-habit-btn p{
+    font-size: 2rem;
+    writing-mode: vertical-rl;
 }
 
 .habit-form {
+    color: var(--background);
+    background-color: var(--hover-green);
+
     width: var(--habit-form-width);
+    border-bottom-left-radius: 20px;
+}
+
+.habit-form label {
+    color: var(--background);
 }
 
 .habit-form form {
-    margin-top: 10px;
-    margin-right: 10px;
+    margin: 10px;
 }
 
-.habit-form form .frequency {
+.habit-form .frequency {
     display: grid;
     grid-template-columns: repeat(2,1fr);
     place-content: center;
@@ -297,6 +324,48 @@ table > tbody > tr > td {
 .habit-form input[type="radio"] {
     margin: 0;
 }
+
+.habit-form .close {
+    box-sizing: content-box;
+    color: var(--background);
+    background-color: transparent;
+
+    border: none;
+    border-radius: 30px;
+
+    margin: 5px;
+    padding: 5px;
+
+    height: 34px;
+    width: 34px;
+}
+
+.habit-form .close:hover {
+    background-color: var(--active-green);
+}
+
+.habit-form input[type="submit"] {
+    height: 50px;
+    padding: 0 15px;
+
+    border: var(--background) 1px solid;
+    border-radius: 10px;
+
+    color: var(--background);
+    background-color: var(--hover-green);
+}
+
+.habit-form input[type="submit"]:hover,
+.habit-form input[type="submit"]:active {
+    font-size: 1.5rem;
+    background-color: var(--active-green);
+}
+
+.habit-form input[type="submit"]:active {
+    color: var(--hover-green);
+    background-color: var(--background);
+}
+
 
 .animated {
     -webkit-animation-duration: 0.3s;

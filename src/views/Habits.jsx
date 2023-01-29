@@ -1,3 +1,5 @@
+import Icon from "@mdi/react";
+import { mdiPlus, mdiCloseThick} from '@mdi/js';
 import { useEffect, useRef, useState } from "react";
 import axiosClient from "../axios-client";
 import Habit from "./Habit";
@@ -13,6 +15,11 @@ export default function Habits(){
     useEffect(() => {
         getHabits();
     },[]);
+
+    function onSubmit(){
+        getHabits();
+        setIsHabitFormOpen(false);
+    }
 
     const getHabits = function(){
         setIsLoading(true);
@@ -83,17 +90,18 @@ export default function Habits(){
                 ))}
             </div>
             <button 
-                className={'slide ' + (isHabitFormOpen && 'hidden')}
+                className={'create-habit-btn slide ' + (isHabitFormOpen && 'hidden')}
                 onClick={() => {
                     setIsHabitFormOpen(true);
                     setUpdatedHabit(null);
                 }}
-            >Open habit form</button>
+            ><p>New habit</p>  <Icon path={mdiPlus} size={1.4}/></button>
             <div className={'habit-form slide ' + (!isHabitFormOpen && 'hidden')}>
                 <button 
+                    className="close"
                     onClick={() => {setIsHabitFormOpen(false)}}
-                >Close habit form</button>
-                <HabitForm key={updatedHabit !== null ? updatedHabit.id : 0} habit={updatedHabit} onSubmit={getHabits} updateHabit={updateHabit}/>
+                ><Icon path={mdiCloseThick} size={1.4}/></button>
+                <HabitForm key={updatedHabit !== null ? updatedHabit.id : 0} habit={updatedHabit} onSubmit={onSubmit} updateHabit={updateHabit}/>
             </div> 
         </div>
     )

@@ -36,7 +36,7 @@ class HabitController extends Controller
         try {
             $validated = $request->validated();
             $validated['user_id'] = $request->user()->id;
-            Log::info($validated);
+
             Habit::create($validated);
     
             return response()->json($validated);

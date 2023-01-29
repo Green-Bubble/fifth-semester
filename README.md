@@ -14,10 +14,10 @@ Final project for [web-apps-in-php](https://github.com/MarcinSkic/web-apps-in-ph
     - Create Habit ✔️
     - Read Habit ✔️
     - Update Habit ✔️
-    - Delete Habit ❌
-- Habits Day Marking ~CRU~
-    - Create Day Mark ❌
-    - Read Day Mark ❌
+    - Delete Habit ✔️
+- Habits Day Marking CR~U~
+    - Create Day Mark ✔️
+    - Read Day Mark ✔️
     - Update Day Mark ❌
 - Numerical Habits ❌
 ---

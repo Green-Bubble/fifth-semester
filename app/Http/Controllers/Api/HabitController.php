@@ -35,7 +35,7 @@ class HabitController extends Controller
 
         Log::info($baseQuery->get()->toArray());
 
-        return HabitResource::collection(Habit::where('user_id',$user->id)->get());
+        return HabitResource::collection($baseQuery->get());
     }
 
     /**

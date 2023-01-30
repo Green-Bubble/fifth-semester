@@ -22,7 +22,8 @@ class HabitResource extends JsonResource
             'description' => $this->descritption,
             'frequency' => $this->frequency,
             'startHour' => $this->startHour,
-            'endHour' => $this->endHour
+            'endHour' => $this->endHour,
+            'day_marks' => DayMarkResource::collection($this->day_marks)
         ];
     }
 }

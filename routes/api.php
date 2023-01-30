@@ -32,7 +32,6 @@ Route::middleware('auth:sanctum')->group(function() {
             Route::delete('/{id}',[HabitController::class,'destroy']);
         });
 
-        Route::post('/daymarks',[DayMarkController::class,'index']);
         Route::prefix('/daymark')->group(function (){
             Route::post('/store',[DayMarkController::class,'store']);
         });

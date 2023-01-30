@@ -18,7 +18,7 @@ Final project for [web-apps-in-php](https://github.com/MarcinSkic/web-apps-in-ph
 - Habits Day Marking CR~U~
     - Create Day Mark ✔️
     - Read Day Mark ✔️
-    - Update Day Mark ❌
+    - Update Day Mark ✔️
 - Numerical Habits ❌
 ---
 ### Used technologies

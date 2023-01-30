@@ -6,12 +6,10 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "doctrine/dbal": "^3.5",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7",
-        "protoqol/prequel": "^1.23"
+        "laravel/tinker": "^2.7"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",

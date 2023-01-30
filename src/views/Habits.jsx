@@ -14,7 +14,6 @@ export default function Habits(){
 
     useEffect(() => {
         getHabits();
-        getHabitStates();
     },[]);
 
     function onSubmit(){
@@ -24,7 +23,7 @@ export default function Habits(){
 
     const getHabits = function(){
         setIsLoading(true);
-        axiosClient.post('/habits')
+        axiosClient.post('/habits',{date: new Date()})
         .then((response)=>{
             
             console.log("READ HABITS",response);
@@ -35,17 +34,6 @@ export default function Habits(){
 
             console.log(error.response.data.errors);
             setIsLoading(false);
-        })
-    }
-
-    function getHabitStates() {
-        axiosClient.post('/daymarks',{date: new Date()})
-        .then((response)=>{
-            console.log("READ HABIT STATES",response);
-        })
-        .catch((error) => {
-
-            console.log(error.response.data.errors);
         })
     }
 

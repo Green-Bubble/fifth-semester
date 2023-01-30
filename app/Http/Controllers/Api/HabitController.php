@@ -22,6 +22,19 @@ class HabitController extends Controller
     public function index(Request $request)
     {
         $user = $request->user();
+        $dateString = $request->input('date');
+        $date = date('Y-m-d',strtotime($dateString));
+
+        $baseQuery = Habit::where('user_id',$user->id);
+        
+        if($dateString){
+            $baseQuery->with(['day_marks' => fn($query) => $query->whereDate('mark_date','=',$date)]);
+        } else {
+            $baseQuery->with('day_marks');
+        }
+
+        Log::info($baseQuery->get()->toArray());
+
         return HabitResource::collection(Habit::where('user_id',$user->id)->get());
     }
 

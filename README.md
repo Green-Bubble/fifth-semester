@@ -10,12 +10,12 @@ Final project for [web-apps-in-php](https://github.com/MarcinSkic/web-apps-in-ph
 - SignUp ✔️
 - Login ✔️
 - Logout ✔️
-- Habits CRU~D~: 
+- Habits CRUD: 
     - Create Habit ✔️
     - Read Habit ✔️
     - Update Habit ✔️
     - Delete Habit ✔️
-- Habits Day Marking CR~U~
+- Habits Day Marking CRU
     - Create Day Mark ✔️
     - Read Day Mark ✔️
     - Update Day Mark ✔️

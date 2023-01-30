@@ -13,6 +13,10 @@ class Habit extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function day_marks(){
+        return $this->hasMany(DayMark::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

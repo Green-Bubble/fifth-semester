@@ -24,8 +24,8 @@ class DayMarkController extends Controller
         ]);
 
         $dateString = $request->input('date');
-        
         $date = date('Y-m-d',strtotime($dateString));
+
         $dateMarks = DayMark::with('habit')->whereDate('mark_date','=',$date)->get()->toArray();   //->where('user_id',$request->user()->id)
         $authorizedDateMarks = array_filter($dateMarks,function ($el) use ($request) {
             return $el['habit']['user_id'] === $request->user()->id;
@@ -44,7 +44,20 @@ class DayMarkController extends Controller
     {
         $validated = $request->validated();
 
-        DayMark::create($validated);
+        Log::info($validated);
+
+        $dateString = $validated['mark_date'];
+        $date = date('Y-m-d',strtotime($dateString));
+
+        $markOfThisDay = DayMark::whereDate('mark_date','=',$date)->where('habit_id',$validated['habit_id'])->first();
+        if(!$markOfThisDay){
+            DayMark::create($validated);
+            $validated['updated'] = false;
+        } else {
+            Log::info($markOfThisDay);
+            $markOfThisDay->update($validated);
+            $validated['updated'] = true;
+        }
 
         return response()->json($validated);
     }
@@ -56,29 +69,6 @@ class DayMarkController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(DayMark $dayMark)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateDayMarkRequest  $request
-     * @param  \App\Models\DayMark  $dayMark
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateDayMarkRequest $request, DayMark $dayMark)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\DayMark  $dayMark
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(DayMark $dayMark)
     {
         //
     }

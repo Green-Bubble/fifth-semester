@@ -35,7 +35,6 @@ Route::middleware('auth:sanctum')->group(function() {
         Route::post('/daymarks',[DayMarkController::class,'index']);
         Route::prefix('/daymark')->group(function (){
             Route::post('/store',[DayMarkController::class,'store']);
-            Route::put('/{id}',[DayMarkController::class,'update']);
         });
     }
 );

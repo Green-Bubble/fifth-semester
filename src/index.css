@@ -150,24 +150,6 @@ input:focus {
     text-align: center;
 }
 
-table {
-    width: 100%;
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-
-table > thead > tr > th {
-    text-align: left;
-    padding: 0.5rem 0.5rem;
-    background-color: #efefef;
-}
-
-table > tbody > tr > td {
-    padding: 0.5rem 0.5rem;
-    border-bottom: 1px solid #efefef;
-    white-space: nowrap;
-}
-
 .card {
     background-color: #FFF;
     border-radius: 0.5rem;
@@ -274,10 +256,10 @@ table > tbody > tr > td {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 5;
 }
 
 #defaultLayout main {
-    padding: 2rem;
     position: relative;
 }
 
@@ -285,6 +267,12 @@ table > tbody > tr > td {
     position: fixed;
     right: 0;
     transition: padding 0.3s, right 0.8s;
+}
+
+#habits {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 #habits .slide {
@@ -311,6 +299,43 @@ table > tbody > tr > td {
 #habits .create-habit-btn p{
     font-size: 2rem;
     writing-mode: vertical-rl;
+}
+
+.selected-date {
+    padding: 5px;
+    font-size: 1.3rem;
+}
+
+.day-picker {
+    padding: 0 100px 0 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.day {
+    background-color: var(--background);
+    border: none;
+
+    width: 48px;
+    height: 50px;
+}
+
+.day:hover {
+    background-color: rgba(0, 0, 0, 0.178);
+}
+
+.day.today {
+    border: var(--aside-green) 1px dotted;
+}
+
+.day.selected {
+    background-color: var(--aside-green);
+    color: var(--background);
+}
+
+.habits-list {
+    padding: 10px;
 }
 
 .habit-form {

@@ -2,17 +2,47 @@ import React, { useEffect, useState } from 'react'
 import Icon from '@mdi/react';
 import { mdiClose , mdiMinus, mdiCheck} from '@mdi/js';
 import axiosClient from '../axios-client';
+import { isSameDay } from 'date-fns';
 
 export default function Habit(props) {
-    const [marked,setMarked] = useState(null);
+    const [marked,setMarked] = useState(() => {
+        const state = props.habit.day_marks[0]?.state;
 
-    function onHabitStateClicked(){
-        setMarked(!marked);
+        if(state === undefined){
+            return null;
+        } else if(state === 'done'){
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+    useEffect(() => {
+        setMarked(() => {
+            const state = props.habit.day_marks.find(day_mark => {
+                const date = new Date(day_mark.mark_date);
+                return isSameDay(date,props.selectedDate);
+            })?.state;
+
+            if(state === undefined){
+                return null;
+            } else if(state === 'done'){
+                return true;
+            } else {
+                return false;
+            }
+        });
+    },[props.selectedDate])
+
+    const onHabitStateClicked = () => {
+
+        const newState = !marked;
+        setMarked(newState);
 
         const payload = {
             habit_id: props.habit.id,
-            mark_date: new Date(),
-            state: marked ? 'done' : 'failed',
+            mark_date: props.selectedDate,
+            state: newState ? 'done' : 'failed',
             value: null
         }
 

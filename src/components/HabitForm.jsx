@@ -59,7 +59,6 @@ export default function HabitForm(props){
             updateHabit(payload);
         }
         
-        console.log(payload);
         props.onSubmit();
     }
 

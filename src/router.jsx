@@ -1,6 +1,6 @@
 import {createBrowserRouter, Navigate} from "react-router-dom";
-import DefaultLayout from "./components/DefaultLayout";
-import GuestLayout from "./components/GuestLayout";
+import DefaultLayout from "./components/Layout/DefaultLayout";
+import GuestLayout from "./components/Layout/GuestLayout";
 import Reports from "./views/Reports";
 import Login from "./views/Login";
 import NotFound from "./views/NotFound";

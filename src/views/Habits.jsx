@@ -2,13 +2,16 @@ import Icon from "@mdi/react";
 import { mdiPlus, mdiCloseThick, mdiDelete} from '@mdi/js';
 import { useEffect, useRef, useState } from "react";
 import axiosClient from "../axios-client";
-import Habit from "./Habit";
-import HabitForm from "./HabitForm";
+import Habit from "../components/Habit";
+import HabitForm from "../components/HabitForm";
+import DayPicker from "../components/DayPicker";
+import {set,parse,format,isToday,addDays,subDays, isAfter, isBefore} from "date-fns";
 
 export default function Habits(){
 
     const [updatedHabit,setUpdatedHabit] = useState(null);
     const [isLoading,setIsLoading] = useState(true);
+    const [selectedDate,setSelectedDate] = useState(new Date());
     const [isHabitFormOpen,setIsHabitFormOpen] = useState(false);
     const [habits,setHabits] = useState([]);
 
@@ -21,9 +24,14 @@ export default function Habits(){
         setIsHabitFormOpen(false);
     }
 
+    function onDateChange(date){
+        console.log("Selected date: ",date);
+        setSelectedDate(date);
+    }
+
     const getHabits = function(){
         setIsLoading(true);
-        axiosClient.post('/habits',{date: new Date()})
+        axiosClient.post('/habits')
         .then((response)=>{
             
             console.log("READ HABITS",response);
@@ -86,14 +94,15 @@ export default function Habits(){
 
     return (
         <div id="habits">
-            <button
-                onClick={funnySort}
-            >
-                Śmieszne sortowanko
-            </button>
+            <DayPicker selectedDate={selectedDate} onDateChange={onDateChange}/>
+            <h3 className="selected-date">
+            {
+                isToday(selectedDate) ? "Today" : format(selectedDate,'yyyy.MM.dd')
+            }
+            </h3>
             <div className="habits-list">
                 {habits.map(h => (
-                    <Habit key={h.id} habit={h} onHabitClick={onHabitClick}/>
+                    <Habit key={h.id} habit={h} onHabitClick={onHabitClick} selectedDate={selectedDate}/>
                 ))}
             </div>
             <button 
@@ -117,3 +126,9 @@ export default function Habits(){
         </div>
     )
 }
+
+/*<button
+onClick={funnySort}
+>
+    Śmieszne sortowanko
+</button>*/

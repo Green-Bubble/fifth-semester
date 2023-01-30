@@ -33,7 +33,7 @@ class UpdateHabitRequest extends FormRequest
             ],
             'color' => 'required|regex:/^#[0-9a-fA-f]{6}$/',
             'title' => 'required|string|max:255',
-            'description' => '',
+            'description' => 'nullable|string',
             'frequency' => [
                 'required',
                 Rule::in(['everyday'])

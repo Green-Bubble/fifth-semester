@@ -18,12 +18,12 @@ Final project for [web-apps-in-php](https://github.com/MarcinSkic/web-apps-in-ph
     - Delete Habit ✔️
 - Habit visual representation ✔️
 - Habit Day Marking ~CRU~:
-    - Create Day Mark ✔️/❌
-    - Read Day Mark ❌
-    - Update Day Mark ❌
+    - Create Day Mark ✔️
+    - Read Day Mark ✔️
+    - Update Day Mark ✔️
 - Display confirmations ❌
 - Sorting habits ❌
-- Day changer ❌
+- Day changer ✔️
 ### Extra features
 - Dragging habits? ❌
 - Reports ❌

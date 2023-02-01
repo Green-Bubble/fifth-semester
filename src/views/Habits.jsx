@@ -5,7 +5,7 @@ import axiosClient from "../axios-client";
 import Habit from "../components/Habit";
 import HabitForm from "../components/HabitForm";
 import DayPicker from "../components/DayPicker";
-import {set,parse,format,isToday,addDays,subDays, isAfter, isBefore} from "date-fns";
+import {format,isToday} from "date-fns";
 
 export default function Habits(){
 

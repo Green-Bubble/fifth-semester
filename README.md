@@ -22,7 +22,20 @@
 3. Website can be accessed on http://localhost:4000/
 
 ## Features
-- DEVELOPMENT
+- User authentication with extensive validation and interface that displays problems
+- Responsive SPA website that doesn't need to reload
+- Each user can create, update and delete his habits with sliding form
+- Created habits can be marked as `done` or `failed`, when there is no mark in database it defaults to `undefined` state
+- User can see and change habit marks for different days with day picker
+
+## Showcase
+> These pictures are GIFs, if they don't play check README.md file
+### Validation
+![validation](readme-assets/validation.gif)
+### Overview
+![features overview](readme-assets/basicUsage.gif)
+### CRUD
+![crud](readme-assets/crud.gif)
 
 ---
 ### Used technologies

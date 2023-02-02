@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+    --background: #f0f9ff;
+
+    --logo-blue: blue;
+    --logo-green: #009705;
+
+    --aside-green: #16a34a;
+    --basic-green: #15803d;
+    --hover-green: #166534;
+    --active-green: #14532d;
+   --font-color:    #525252;
+
+   --habit-form-width: 350px;
+   --header-height-default-layout: 80px;
+}
+
+.border-box{
+    box-sizing: border-box;
+}
+
+.content-box {
+    box-sizing: content-box;
+}
+
+.border-box,
+.content-box{
+    margin: 10px;
+    padding: 0px;
+    border: 40px solid red;
+    height: 80px;
+    width: 80px;
+}
+
+* {
+    box-sizing: border-box;
+}
+html, body, #root, #defaultLayout, #guestLayout {
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #212121;
+    background-color: var(--background);
+}
+
+input {
+    outline: 0;
+    background: #ffffff;
+    width: 100%;
+    border: 2px solid #e6e6e6;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: all 0.3s;
+    margin: 0 0 15px;
+}
+
+input[type="color"] {
+    padding: 0;
+}
+
+input:focus {
+    border-color: var(--basic-green);
+}
+
+.blue-green-grad {
+    background: no-repeat linear-gradient(135deg, var(--logo-blue) 0%,40%, var(--logo-green) 99%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#logo {
+    background: no-repeat linear-gradient(135deg, var(--logo-blue) 0%,40%, var(--logo-green) 99%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    min-width:fit-content;
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.btn,
+.btn-add,
+.btn-edit,
+.btn-delete {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: var(--basic-green);
+    border: 0;
+    text-decoration: none;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 16px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-add,
+.btn-edit,
+.btn-delete{
+    padding: 0.5rem 0.75rem;
+    font-size: 14px;
+    border-radius: 4px;
+}
+.btn-add {
+    background-color: #00a762;
+}
+.btn-delete {
+    background-color: #b72424;
+}
+
+.btn-logout {
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    color: #212121;
+    transition: all 0.3s;
+    border-radius: 6px;
+}
+.btn-logout:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover,
+.btn:focus {
+    background: var(--hover-green);
+}
+
+.btn:active {
+    background-color: var(--active-green);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.card {
+    background-color: #FFF;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+.alert {
+    padding: 1rem;
+    background-color: #ff4040;
+    color: white;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.notification {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 100;
+    padding: 1rem 1.5rem;
+    background-color: #00a762;
+    color: white;
+    border-radius: 0.5rem;
+}
+
+/* Login/Signup forms*/
+
+.login-signup-form {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-signup-form .form {
+    width: 360px;
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    padding: 34px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.login-signup-form .title {
+    font-size: 20px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.login-signup-form .form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 16px;
+    text-align: center;
+}
+
+.login-signup-form .form .message a {
+    background: no-repeat linear-gradient(135deg, var(--logo-blue) 0%,40%, var(--logo-green) 99%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    text-decoration: none;
+}
+
+/* Login/Signup form */
+
+
+#defaultLayout {
+    display: grid;
+
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: var(--header-height-default-layout) 1fr;
+}
+
+#defaultLayout aside {
+    background-color: #16a34a;
+    padding: 1rem;
+}
+
+#defaultLayout aside > a {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+#defaultLayout aside > a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#defaultLayout header {
+    grid-column: 1 / -1;
+
+    padding: 2rem 3rem;
+    background-color: #f1f5f9;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+}
+
+#defaultLayout main {
+    position: relative;
+}
+
+.slide {
+    position: fixed;
+    right: 0;
+    transition: padding 0.3s, right 0.8s;
+}
+
+#habits {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#habits .slide {
+    top: var(--header-height-default-layout);
+}
+
+#habits .slide.hidden {
+    right: calc(0px - var(--habit-form-width));
+}
+
+#habits .create-habit-btn {
+    padding-top: 10px;
+    color: var(--background);
+    background-color: var(--basic-green);
+
+    border: none;
+    border-bottom-left-radius: 10px;
+}
+
+#habits .create-habit-btn:hover {
+    padding-right: 20px;
+}
+
+#habits .create-habit-btn p{
+    font-size: 2rem;
+    writing-mode: vertical-rl;
+}
+
+.selected-date {
+    padding: 5px;
+    font-size: 1.3rem;
+}
+
+.day-picker {
+    padding: 0 100px 0 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.day {
+    background-color: var(--background);
+    border: none;
+
+    width: 48px;
+    height: 50px;
+}
+
+.day:hover {
+    background-color: rgba(0, 0, 0, 0.178);
+}
+
+.day.today {
+    border: var(--aside-green) 1px dotted;
+}
+
+.day.selected {
+    background-color: var(--aside-green);
+    color: var(--background);
+}
+
+.habits-list {
+    padding: 10px;
+}
+
+.habit-form {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+    color: var(--background);
+    background-color: var(--hover-green);
+
+    width: var(--habit-form-width);
+    border-bottom-left-radius: 20px;
+}
+
+.habit-form label {
+    color: var(--background);
+}
+
+.habit-form form {
+    grid-column: 1 / -1;
+
+    margin: 10px;
+}
+
+.habit-form .frequency {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    place-content: center;
+    gap: 5px;
+
+    margin-bottom: 10px;
+}
+
+.habit-form input[type="radio"] {
+    margin: 0;
+}
+
+.habit-form .delete,
+.habit-form .close {
+    box-sizing: content-box;
+    color: var(--background);
+    background-color: transparent;
+
+    border: none;
+    border-radius: 30px;
+
+    margin: 5px;
+    padding: 5px;
+
+    height: 34px;
+    width: 34px;
+}
+
+.habit-form .delete {
+    justify-self: end;
+}
+
+.habit-form .close:hover {
+    background-color: var(--active-green);
+}
+
+.habit-form .delete:hover {
+    color: #dd2626;
+}
+
+.habit-form input[type="submit"] {
+    height: 50px;
+    padding: 0 15px;
+
+    border: var(--background) 1px solid;
+    border-radius: 10px;
+
+    color: var(--background);
+    background-color: var(--hover-green);
+}
+
+.habit-form input[type="submit"]:hover,
+.habit-form input[type="submit"]:active {
+    font-size: 1.5rem;
+    background-color: var(--active-green);
+}
+
+.habit-form input[type="submit"]:active {
+    color: var(--hover-green);
+    background-color: var(--background);
+}
+
+
+.animated {
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-cont {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    transition: max-height 0 linear;
+    
+    overflow: hidden;
+    max-height: 0px;
+    
+    top: -15px;
+}
+
+.alert-cont.active {
+    max-height: 100px;
+    transition: max-height 700ms linear;
+}
+
+.alert-cont.active.pass {
+    max-height: 200px;
+}
+
+.alert.animated {
+    margin: 5px 5px 0 5px;
+    padding: 5px 10px;
+}

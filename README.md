@@ -12,7 +12,12 @@ Class in Uni about simple, monolithic backend (PHP &amp; MySQL)
 9. Protection against popular attacks
 10. Modular website template
 11. AJAX
-12. Final project (soon<sup>TM</sup> this will be link to repo with this project)
+## Final Project
+Combined project as presented on University: *habit-tracker-university* directory
+
+Development version: [Frontend](https://github.com/MarcinSkic/habit-tracker-react-frontend) |
+[Backend](https://github.com/MarcinSkic/habit-tracker-laravel-restapi)
+
 ---
 ### Used technologies
 [<img align="left" width="26px" alt= "PHP" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" style="padding-right:10px;"></img>][php]

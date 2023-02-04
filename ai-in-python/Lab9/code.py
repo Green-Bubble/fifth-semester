@@ -7,6 +7,7 @@ from keras.utils.vis_utils import plot_model
 
 import numpy as np
 import matplotlib.pyplot as plt
+
 #%% AUTOENCODER CREATION
 train, test = fashion_mnist.load_data()
 X_train, y_train = train[0], train[1]
@@ -51,6 +52,7 @@ decoder = Model(inputs = input_decoder,outputs = dec_tensor)
 
 autoencoder.compile(optimizer=Adam(lrng_rate),loss='binary_crossentropy')
 plot_model(autoencoder,show_shapes=True)
+
 #%% AUTOENCODER TRAINING AND TESTING
 autoencoder.fit(x = X_train, y = X_train,epochs = 50, batch_size = 256)
 
@@ -72,6 +74,7 @@ cleaned_images=autoencoder.predict(noisy_test_photos)
 show_pictures(test_photos)
 show_pictures(noisy_test_photos)
 show_pictures(cleaned_images)
+
 #%% GENERATING NEW DATA
 num = 15
 limit = 0.6
@@ -86,6 +89,7 @@ for i, x in enumerate(X_vals):
     output = np.squeeze(output)
     ax[-j-1,i].imshow(output, cmap = 'jet')
     ax[-j-1,i].axis('off')
+
 #%% PLOT CLASTERIZATION
 fig, ax = plt.subplots(1, 1, figsize = (20,16))
 for i in range(10):

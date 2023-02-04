@@ -1,5 +1,5 @@
 #include <targets/AT91SAM7.h>
-#include "PCF8833U8_lcd.h"
+#include "lcd.h"
 #include "bmp.h"
 
 #define jUp 0x00000080;

@@ -1,5 +1,5 @@
 #include <targets/AT91SAM7.h>
-#include "PCF8833U8_lcd.h"
+#include "lcd.h"
 
 //Te nazwy odnosza sie do podlaczenia joysticka wedlug dokumentacji, na zajeciach inaczej
 #define jUp 0x00000080;
@@ -152,14 +152,14 @@ int main(){
   SetContrast(50);
   LCDClearScreen();
 
-  //W³¹czenie guzików
+  //Wï¿½ï¿½czenie guzikï¿½w
   PIOB_PER |= 1<<24;
   PIOB_PER |= 1<<25;
 
   PIOB_ODR |= 1<<24;
   PIOB_ODR |= 1<<25;
 
-  //W³¹czenie joysticków
+  //Wï¿½ï¿½czenie joystickï¿½w
   PMC_PCER = 1<<2;
   PIOA_PER |= jUp;
   PIOA_PER |= jCenter;

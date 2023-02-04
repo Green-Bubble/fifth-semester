@@ -1,5 +1,5 @@
 #include <targets/AT91SAM7X256.h>
-#include "pcf8833u8_lcd.h"
+#include "lcd.h"
 
 int main(void){
   //LCD_BL

@@ -1,0 +1,82 @@
+[
+    {
+        "userName": "admin",
+        "passwd": "admin",
+        "fullName": "Administrator",
+        "email": "admin@gmail.com",
+        "date": "2018-09-10",
+        "status": 2
+    },
+    {
+        "userName": "kubus",
+        "passwd": "kubus",
+        "fullName": "Kubu\u015b Puchatek",
+        "email": "kubus@stumilowylas.com",
+        "date": "2019-10-30",
+        "status": 1
+    },
+    {
+        "userName": "MartinDraft",
+        "passwd": "$2y$10$Nwyo4.f.6KiCmayT.HRlTu1urMAaE8Xr4M0I.06ToJ9xp2rlbi1EO",
+        "fullName": "Marcin Skic",
+        "email": "martinplgames@gmail.com",
+        "date": "2022-12-01",
+        "status": 1
+    },
+    {
+        "userName": "Kubenos",
+        "passwd": "$2y$10$fKPesHOEiaNaNAsekSxFqeq8OcB7UyXMOOgRb4vI9nQN4i15XMHWK",
+        "fullName": "Kuba Turowski",
+        "email": "kubus@mail.pl",
+        "date": "2022-12-01",
+        "status": 1
+    },
+    {
+        "userName": "Korniszon",
+        "passwd": "$2y$10$SCbZ4jjS6vt5pjPcrtdS5ugdcIdt3GFlRpRIPME3sWUU1zoTFEzeW",
+        "fullName": "Kamil Dostojewski",
+        "email": "dostoj@mail.eu",
+        "date": "2022-12-02",
+        "status": 1
+    },
+    {
+        "userName": "Martin",
+        "passwd": "$2y$10$\/5xI.\/10vFJNv\/OjoXnZ2edYFZ.6YDaDsPbYtCxhOTKbHH39.HMKq",
+        "fullName": "Marcin Skic",
+        "email": "test@test.pl",
+        "date": "2022-12-02",
+        "status": 1
+    },
+    {
+        "userName": "Martin2",
+        "passwd": "$2y$10$P0z6W9G0C390obW8GFR2puiiv.zptEW8fj5zImUeDkxr9orEteZGm",
+        "fullName": "Marcin Jakis",
+        "email": "mail@mail.com",
+        "date": "2022-12-02",
+        "status": 1
+    },
+    {
+        "userName": "Martin2",
+        "passwd": "$2y$10$52IycM4agKvgmmBHXRrej.tN5Hsi14MFFc0N79LF06Y6iW5FYhhKO",
+        "fullName": "Marcin Jakis",
+        "email": "mail@mail.com",
+        "date": "2022-12-02",
+        "status": 1
+    },
+    {
+        "userName": "NowyUser",
+        "passwd": "$2y$10$gSOAPhU1GC\/oQP5MhwuT1uwelivXJAaRpKgdQ6y44d6iM.odDJ6.K",
+        "fullName": "Imie Nazwisko",
+        "email": "mail@mail.pl",
+        "date": "2022-12-02",
+        "status": 1
+    },
+    {
+        "userName": "Nazwa",
+        "passwd": "$2y$10$8EqrsRocCRiwvW4Jz97o5eiTCXi2iBxGK6qCIhv4bu80ml5a4svLK",
+        "fullName": "Mateusz Marek",
+        "email": "mail@mail.pl",
+        "date": "2022-12-02",
+        "status": 1
+    }
+]

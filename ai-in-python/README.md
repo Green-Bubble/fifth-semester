@@ -1,5 +1,6 @@
 # AI and DataScience
 Class in Uni about simple AI used in Data Science.
+> Dedicated [repository](https://github.com/MarcinSkic/ai-in-python) contains code in jupyter notebooks allowing inspection of results
 ## Concepts
 - Libraries used in DataScience
   - NumPy

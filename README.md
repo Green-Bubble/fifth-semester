@@ -14,7 +14,6 @@ Classes at the University I took in fifth semester
 ### Used technologies
 [<img align="left" width="26px" style="padding: 0 20px 20px 0" alt="c++" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"/>][c]
 [<img align="left" width="26px" style="padding: 0 20px 20px 0" alt="Python" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/>][python]
-[<img align="left" width="26px" style="padding: 0 20px 20px 0" alt="Jupyter" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg"/>][jupyter]
 [<img align="left" width="26px" style="padding: 0 20px 20px 0" alt="TensorFlow" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"/>][tensorflow]
 [<img align="left" width="26px" style="padding: 0 20px 20px 0" alt="c++" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"/>][cpp]
 [<img align="left" width="26px" style="padding: 0 20px 20px 0" alt="c++" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/qt/qt-original.svg"/>][qt]
@@ -29,7 +28,6 @@ Classes at the University I took in fifth semester
 
 [c]: https://en.wikipedia.org/wiki/C_(programming_language)
 [python]: https://www.python.org
-[jupyter]: https://jupyter.org/
 [tensorflow]: https://www.tensorflow.org/
 [cpp]: https://en.wikipedia.org/wiki/C%2B%2B
 [qt]: https://www.qt.io

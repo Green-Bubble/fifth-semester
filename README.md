@@ -12,6 +12,7 @@ Classes at the University I took in fifth semester
 
 ---
 ### Used technologies
+[<img align="left" alt="EmbeddedC" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/embeddedc/embeddedc-original.svg" style="padding: 0 20px 20px 0" />][embedded-c]
 [<img align="left" width="26px" style="padding: 0 20px 20px 0" alt="c++" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"/>][c]
 [<img align="left" width="26px" style="padding: 0 20px 20px 0" alt="Python" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/>][python]
 [<img align="left" width="26px" style="padding: 0 20px 20px 0" alt="TensorFlow" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"/>][tensorflow]
@@ -26,6 +27,7 @@ Classes at the University I took in fifth semester
 [<img align="left" alt="HTML" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" style="padding: 0 20px 20px 0"/>][html]
 [<img align="left" style="padding-right:10px" width="26px" alt="Swift" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" />][swift]
 
+[embedded-c]: https://en.wikipedia.org/wiki/Embedded_C
 [c]: https://en.wikipedia.org/wiki/C_(programming_language)
 [python]: https://www.python.org
 [tensorflow]: https://www.tensorflow.org/

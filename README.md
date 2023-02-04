@@ -1,16 +1,18 @@
 # Swift basics
 Class in Uni teaching basics of Swift language. Apart from Lab 1 every program is for console.
 ## Laboratories
-1\. Introduction: Console, Storyboard, SwiftUI </br>
-2\. Variables and Constants </br>
-3\. String </br>
-4\. if, switch and guard </br>
-5\. Loops </br>
-6\. Arrays </br>
-8\. Tuples and Enums </br>
-9\. Structs, Sets and Dictionaries </br>
-10&11\. OOP </br>
-12\. ~Interfaces~ Protocols </br>
+1. Introduction: Console, Storyboard, SwiftUI 
+2. Variables and Constants
+3. String
+4. if, switch and guard
+5. Loops
+6. Arrays
+7. *Test*
+8. Tuples and Enums
+9. Structs, Sets and Dictionaries
+10. OOP
+11. OOP cont.
+12. ~Interfaces~ Protocols
 
 ---
 ### Used technologies

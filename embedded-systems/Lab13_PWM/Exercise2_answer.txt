@@ -1,0 +1,2 @@
+PIOB_ASR = 1<<22;
+Jest niezbędna aby przełączyć multipleksację z I/O PINU na kontroler PWM
